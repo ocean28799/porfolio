@@ -1,13 +1,16 @@
 import { LayoutWithHeader } from "@/components/layout/layout-with-header"
 import { ThemeProvider } from "@/components/theme-provider"
-import { BackToTopButton } from "@/components/ui/back-to-top"
-import { FancyCursor } from "@/components/ui/fancy-cursor"
-import { ScrollProgress } from "@/components/ui/scroll-progress"
+import { BackgroundProvider } from "@/contexts/background-context"
+import { ThemeProvider as CustomThemeProvider } from "@/contexts/theme-context"
+import { PerformanceReporter } from "@/components/performance-reporter"
+import { I18nProvider } from "@/components/i18n-provider"
+import { ChatbotClient } from "@/components/chatbot"
+import { FloatingNavigation } from "@/components/layout/floating-navigation"
+import { AdvancedParticleBackground } from "@/components/features/backgrounds/advanced-particle-background"
 import "@/styles/globals.css"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from "next"
-import { Suspense } from "react"
 
 import { Exo_2 } from "next/font/google"
 
@@ -18,46 +21,48 @@ const exo2 = Exo_2({
 })
 
 export const metadata: Metadata = {
-  title: "Duc Tran | React/Next.js Developer Portfolio",
+  title: "Tran Anh Duc | Senior React Native & AI Integration Specialist Portfolio",
   description:
-    "Explore Duc Tran's portfolio – a skilled React/Next.js Developer specializing in modern React ecosystem, TypeScript, and high-performance web applications. Building scalable, component-driven solutions.",
+    "Senior React Native and AI Integration Specialist with 4+ years of proven expertise. Successfully deployed 50+ enterprise-grade applications across 15+ countries, serving millions of users with cutting-edge React Native, Next.js 15, and AI-powered solutions.",
   keywords: [
-    "React Developer",
-    "Next.js Developer",
-    "Frontend Developer",
-    "TypeScript Developer",
-    "Component Architecture",
-    "React Hooks",
-    "State Management",
+    "Senior React Native Developer",
+    "AI Integration Architect", 
+    "Next.js 15 Expert",
+    "Enterprise App Developer",
+    "OpenAI Integration Specialist",
+    "Tran Anh Duc Portfolio",
+    "Cross-platform Solutions Expert",
+    "AI-Powered Mobile Apps",
+    "TypeScript Expert",
     "Performance Optimization",
-    "Duc Tran Portfolio",
-    "Web Development",
-    "UI/UX Design",
-    "JavaScript",
-    "Modern Web Technologies",
+    "Enterprise Development",
+    "Remote Developer",
+    "Vietnam Developer",
+    "Mobile App Performance",
+    "Scalable Applications",
   ],
   openGraph: {
-    title: "Duc Tran | React/Next.js Developer Portfolio",
+    title: "Tran Anh Duc | Senior React Native & AI Integration Specialist Portfolio",
     description:
-      "Discover Duc Tran's expertise in React and Next.js Development. Specialized in building scalable, performant applications with modern React patterns, TypeScript, and component-driven architecture.",
-    url: "https://kinhdev.id.vn",
+      "Senior developer with 4+ years of proven expertise in enterprise-grade applications. 50+ apps deployed worldwide with cutting-edge React Native, Next.js 15, and AI integration.",
+    url: "https://trananhducdev.vercel.app",
     type: "website",
     images: [
       {
-        url: "https://voocgavdbpy2gucg.public.blob.vercel-storage.com/open-graph-6fkPvt3jl60AhDWy2pPhfp3PKoZPrZ.png",
+        url: "https://trananhducdev.vercel.app/images/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Duc Tran - React/Next.js Developer Portfolio",
+        alt: "Tran Anh Duc - React Native + AI Integration Specialist Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Duc Tran | React/Next.js Developer Portfolio",
+    title: "Tran Anh Duc | React Native + AI Integration Specialist Portfolio",
     description:
-      "Explore Duc Tran's React/Next.js projects and expertise in modern component-driven development.",
+      "Explore Tran Anh Duc's React Native and AI integration projects featuring OpenAI, TensorFlow, and modern cross-platform development.",
     images: [
-      "https://voocgavdbpy2gucg.public.blob.vercel-storage.com/open-graph-6fkPvt3jl60AhDWy2pPhfp3PKoZPrZ.png",
+      "https://trananhducdev.vercel.app/images/og-image.png",
     ],
   },
   icons: {
@@ -80,14 +85,17 @@ export default function RootLayout({
           defaultTheme="dark"
           disableTransitionOnChange
         >
-          <Suspense fallback={null}>
-            <FancyCursor />
-          </Suspense>
-          <ScrollProgress />
-          <LayoutWithHeader>{children}</LayoutWithHeader>
-          <Suspense fallback={null}>
-            <BackToTopButton />
-          </Suspense>
+          <I18nProvider>
+            <CustomThemeProvider>
+              <BackgroundProvider>
+                <LayoutWithHeader>{children}</LayoutWithHeader>
+                <ChatbotClient />
+                <PerformanceReporter />
+                <FloatingNavigation />
+                <AdvancedParticleBackground />
+              </BackgroundProvider>
+            </CustomThemeProvider>
+          </I18nProvider>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

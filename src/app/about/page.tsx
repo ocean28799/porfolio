@@ -1,53 +1,48 @@
 import { Metadata } from "next"
-import { ModernAboutPage } from "./modern-about-page"
+import { AboutPageContent } from "./about-content"
+import { PagePerformanceTracker } from "@/components/performance-reporter"
 
 export const metadata: Metadata = {
-  title: "About | Duc Tran",
+  title: "About | Tran Anh Duc - Senior React Native & AI Integration Specialist",
   description:
-    "Learn more about Duc Tran - Cross-Platform React/Next.js Developer, AI integration specialist, and modern web development expert with 4+ years of experience.",
+    "Meet Tran Anh Duc - Senior React Native and AI Integration Specialist with 4+ years of proven expertise. Successfully deployed 50+ applications across 15+ countries.",
   keywords: [
-    "Duc Tran",
-    "About Duc",
-    "About Kinh",
-    "React Developer",
-    "Next.js Developer",
-    "React Native Developer",
-    "Cross-Platform Developer",
-    "Frontend Developer",
-    "Component Architecture",
-    "TypeScript",
-    "AI Integration",
-    "Vietnam Developer",
+    "Tran Anh Duc",
+    "Senior React Native Developer",
+    "AI Integration Specialist",
+    "React Native Expert",
+    "Next.js 15 Developer",
+    "Enterprise App Developer",
+    "Mobile App Architect",
+    "AI-Powered Applications",
+    "Cross-platform Expert",
+    "Performance Specialist",
   ],
   openGraph: {
-    title: "About | Duc Tran - Cross-Platform Developer",
+    title: "About | Tran Anh Duc - Senior React Native & AI Integration Specialist",
     description:
-      "Discover the story and journey of Duc Tran in React/Next.js/React Native development, AI integration, and modern cross-platform technologies.",
-    url: "https://kinhdev.id.vn/about",
-    siteName: "Duc Tran",
+      "Senior developer with 4+ years of proven expertise in enterprise-grade mobile and web applications. 50+ apps deployed worldwide.",
+    url: "https://trananhducdev.com/about",
+    siteName: "Tran Anh Duc",
     type: "website",
     locale: "en_US",
-    images: [
-      {
-        url: "/images/avt-card.png",
-        width: 1200,
-        height: 630,
-        alt: "Duc Tran - Cross-Platform Developer",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About | Duc Tran - Cross-Platform Developer",
+    title: "About | Tran Anh Duc - Senior React Native & AI Integration Specialist",
     description:
-      "Learn more about Duc Tran - React/Next.js/React Native Developer, AI integration specialist, and cross-platform expert.",
-    images: ["/images/avt-card.png"],
+      "Learn more about Tran Anh Duc - Senior React Native and AI Integration Specialist with 4+ years of experience.",
   },
   alternates: {
-    canonical: "https://kinhdev.id.vn/about",
+    canonical: "https://trananhducdev.com/about",
   },
 }
 
 export default function AboutPage() {
-  return <ModernAboutPage />
+  return (
+    <>
+      <PagePerformanceTracker pageName="about" />
+      <AboutPageContent />
+    </>
+  )
 }

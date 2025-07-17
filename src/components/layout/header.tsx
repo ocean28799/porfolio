@@ -1,225 +1,496 @@
 "use client"
 
 import { cn } from "@/lib/utils"
+import { motion } from "motion/react"
+import { useBackground } from "@/contexts/background-context"
+import { useTranslation } from "react-i18next"
 import {
-  IconBrandGithub,
   IconMenu2,
   IconX,
   IconHome,
-  IconUser,
   IconCode,
+  IconUser,
   IconCurrencyDollar,
+  IconArrowUp,
+  IconArticle,
+  IconTerminal2,
 } from "@tabler/icons-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ModeToggle } from "../mode-toggle"
+import { useCallback, useEffect, useState } from "react"
 import { Logo } from "../svg/logo"
 import { Button } from "../ui/button"
+import { LanguageSwitcher } from "../language-switcher"
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "../ui/drawer"
 
-const navigationLinks = [
-  {
-    title: "Home",
-    href: "/",
-    icon: IconHome,
-  },
-  {
-    title: "Tech Feed",
-    href: "/tech-feed", 
-    icon: IconCode,
-  },
-  {
-    title: "Pricing",
-    href: "/pricing",
-    icon: IconCurrencyDollar,
-  },
-  {
-    title: "About",
-    href: "/about",
-    icon: IconUser,
-  },
-]
+const pathNameDisableHeaderScroll = [""]
+
+// NavLink Component
+const NavLink = ({ title, href, icon: Icon, backgroundType }: {
+  title: string
+  href: string
+  icon: React.ComponentType<{ className?: string }>
+  backgroundType: string
+}) => {
+  const pathname = usePathname()
+  const isActive = pathname === href
+
+  return (
+    <Link href={href}>
+      <motion.div
+        className={cn(
+          "relative px-4 py-2 rounded-xl transition-all duration-300 group",
+          "border backdrop-blur-sm cursor-pointer overflow-hidden",
+          isActive
+            ? backgroundType === 'matrix'
+              ? "border-[#00ff41]/50 bg-[#00ff41]/20 shadow-lg shadow-[#00ff41]/25"
+              : "border-blue-400/50 bg-blue-400/20 shadow-lg shadow-blue-400/25"
+            : backgroundType === 'matrix'
+              ? "border-[#00ff41]/20 bg-black/20 hover:border-[#00ff41]/40 hover:bg-[#00ff41]/10"
+              : "border-blue-400/20 bg-slate-800/20 hover:border-blue-400/40 hover:bg-blue-400/10"
+        )}
+        whileHover={{ scale: 1.05, y: -2 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ duration: 0.2 }}
+      >
+        {/* Animated background on hover */}
+        <motion.div
+          className={cn(
+            "absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300",
+            backgroundType === 'matrix'
+              ? "bg-gradient-to-r from-[#00ff41]/10 to-[#00d4aa]/10"
+              : "bg-gradient-to-r from-blue-400/10 to-purple-400/10"
+          )}
+          initial={{ scale: 0 }}
+          whileHover={{ scale: 1 }}
+          transition={{ duration: 0.3 }}
+        />
+
+        {/* Glowing border effect */}
+        {isActive && (
+          <motion.div
+            className={cn(
+              "absolute inset-0 rounded-xl",
+              backgroundType === 'matrix'
+                ? "shadow-[0_0_20px_rgba(0,255,65,0.3)]"
+                : "shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+            )}
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        )}
+
+        <div className="relative z-10 flex items-center gap-2">
+          <Icon 
+            className={cn(
+              "w-4 h-4 transition-colors duration-300",
+              isActive
+                ? backgroundType === 'matrix' ? "text-[#00ff41]" : "text-blue-400"
+                : "text-gray-400 group-hover:text-white"
+            )} 
+          />
+          <span className={cn(
+            "text-sm font-medium transition-colors duration-300",
+            isActive
+              ? backgroundType === 'matrix' ? "text-[#00ff41]" : "text-blue-400"
+              : "text-gray-300 group-hover:text-white"
+          )}>
+            {title}
+          </span>
+        </div>
+      </motion.div>
+    </Link>
+  )
+}
+
+// Separator Component
+const Separator = () => {
+  const { backgroundType } = useBackground()
+  return (
+    <div className={cn(
+      "h-px w-full my-4",
+      backgroundType === 'matrix'
+        ? "bg-gradient-to-r from-transparent via-[#00ff41]/30 to-transparent"
+        : "bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"
+    )} />
+  )
+}
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const { backgroundType, getThemeColors } = useBackground()
+  const { t } = useTranslation()
+  const colors = getThemeColors()
   const pathname = usePathname()
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+  // Dynamic links with translations and fallbacks for hydration
+  const links = [
+    {
+      title: t('nav.home') || 'Home',
+      href: "/",
+      icon: IconHome,
+    },
+    {
+      title: t('nav.projects') || 'Projects',
+      href: "/projects",
+      icon: IconCode,
+    },
+    {
+      title: t('nav.playground') || 'Playground',
+      href: "/playground",
+      icon: IconTerminal2,
+    },
+    {
+      title: t('nav.blog') || 'Blog',
+      href: "/blog",
+      icon: IconArticle,
+    },
+    {
+      title: t('nav.about') || 'About',
+      href: "/about",
+      icon: IconUser,
+    },
+    {
+      title: t('nav.pricing') || 'Pricing',
+      href: "/pricing",
+      icon: IconCurrencyDollar,
+    },
+  ]
+
+  const isDisableHeaderScroll = pathNameDisableHeaderScroll.includes(pathname)
+
+  const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY
+
+    if (isDisableHeaderScroll) {
+      setIsScrolled(false)
+      return
     }
 
+    if (currentScrollY === 0) {
+      setIsScrolled(false)
+    } else if (currentScrollY > 50) {
+      setIsScrolled(true)
+    }
+  }, [isDisableHeaderScroll])
+
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true })
     handleScroll()
-
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setIsMobileMenuOpen(false)
-  }, [pathname])
+  }, [handleScroll])
 
   return (
     <>
       <motion.header
         className={cn(
-          "fixed top-0 left-0 right-0 z-[55] transition-all duration-300",
-          isScrolled 
-            ? "bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50 shadow-lg" 
-            : "bg-transparent"
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          !isDisableHeaderScroll && "sticky"
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
-        
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3 group">
-              <Logo className="w-10 h-10 lg:w-12 lg:h-12 transition-transform group-hover:scale-105" />
-              <div className="hidden sm:block">
-                <div className="text-lg lg:text-xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent">
-                  Duc Tran
-                </div>
-                <div className="text-xs text-gray-500 dark:text-gray-400">
-                  React Developer
-                </div>
-              </div>
-            </Link>
+        {/* Neural Network Background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className={cn(
+            "absolute inset-0 opacity-20",
+            backgroundType === 'matrix' 
+              ? "bg-gradient-to-r from-[#00ff41]/10 via-transparent to-[#ff0080]/10" 
+              : "bg-gradient-to-r from-blue-500/10 via-transparent to-purple-500/10"
+          )} />
+          
+          {/* Animated grid pattern */}
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `
+                linear-gradient(${colors.primary}20 1px, transparent 1px),
+                linear-gradient(90deg, ${colors.primary}20 1px, transparent 1px)
+              `,
+              backgroundSize: '20px 20px',
+            }}
+            animate={{ 
+              backgroundPositionX: ['0px', '20px'],
+            }}
+            transition={{ 
+              duration: 20, 
+              repeat: Infinity, 
+              ease: "linear" 
+            }}
+          />
+        </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1">
-              {navigationLinks.map((link) => (
-                <NavLink key={link.href} link={link} />
-              ))}
-            </div>
-
-            {/* Right side actions */}
-            <div className="flex items-center space-x-3">
-              {/* GitHub Link */}
-              <motion.a
-                href="https://github.com/ocean28799"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <IconBrandGithub className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors" />
-              </motion.a>
-
-              <ModeToggle />
-
-              {/* Mobile menu button */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="md:hidden relative"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              >
-                <AnimatePresence mode="wait">
-                  {isMobileMenuOpen ? (
-                    <motion.div
-                      key="close"
-                      initial={{ rotate: -90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: 90, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <IconX className="w-5 h-5" />
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="menu"
-                      initial={{ rotate: 90, opacity: 0 }}
-                      animate={{ rotate: 0, opacity: 1 }}
-                      exit={{ rotate: -90, opacity: 0 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <IconMenu2 className="w-5 h-5" />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </Button>
-            </div>
-          </div>
-        </nav>
-
-        {/* Mobile Navigation Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              className="md:hidden absolute top-full left-0 right-0 bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50 shadow-lg"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="px-4 py-6 space-y-3">
-                {navigationLinks.map((link, index) => (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Link
-                      href={link.href}
-                      className={cn(
-                        "flex items-center space-x-3 px-3 py-3 rounded-lg transition-colors",
-                        pathname === link.href
-                          ? "bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400"
-                          : "hover:bg-gray-100 dark:hover:bg-gray-800"
-                      )}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      <link.icon className="w-5 h-5" />
-                      <span className="font-medium">{link.title}</span>
-                    </Link>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+        <motion.div
+          className={cn(
+            "mx-auto flex justify-between items-center transition-all duration-500 relative z-10",
+            isScrolled
+              ? "bg-black/80 backdrop-blur-xl border-b shadow-2xl px-6 py-3"
+              : "bg-transparent px-8 py-6",
+            backgroundType === 'matrix' && isScrolled
+              ? "border-[#00ff41]/30 shadow-[#00ff41]/20"
+              : "border-slate-600/30 shadow-blue-500/20"
           )}
-        </AnimatePresence>
+          layout
+        >
+          {/* Logo Section */}
+          <motion.div 
+            className="flex items-center gap-3"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className={cn(
+              "relative p-2 rounded-xl border backdrop-blur-sm",
+              backgroundType === 'matrix'
+                ? "border-[#00ff41]/30 bg-[#00ff41]/10"
+                : "border-blue-400/30 bg-blue-400/10"
+            )}>
+              {/* Glowing effect */}
+              <div className={cn(
+                "absolute inset-0 rounded-xl blur-md opacity-50",
+                backgroundType === 'matrix'
+                  ? "bg-[#00ff41]/20"
+                  : "bg-blue-400/20"
+              )} />
+              <Logo className="relative z-10 w-8 h-8" />
+            </div>
+            
+            <div className="hidden sm:block">
+              <motion.h1 
+                className={cn(
+                  "text-xl font-bold bg-gradient-to-r bg-clip-text text-transparent",
+                  backgroundType === 'matrix'
+                    ? "from-[#00ff41] to-[#00d4aa]"
+                    : "from-blue-400 to-purple-400"
+                )}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                Tran Anh Duc
+              </motion.h1>
+              <motion.p 
+                className="text-xs text-gray-400"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                Senior React Native Developer
+              </motion.p>
+            </div>
+          </motion.div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-2">
+            {links.map((link, index) => (
+              <motion.div
+                key={link.href}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index }}
+              >
+                <NavLink 
+                  {...link} 
+                  backgroundType={backgroundType}
+                />
+              </motion.div>
+            ))}
+            
+            {/* Language Switcher */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * links.length }}
+              className="ml-2"
+            >
+              <LanguageSwitcher />
+            </motion.div>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+              <DrawerTrigger asChild>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className={cn(
+                      "border backdrop-blur-sm size-11 rounded-xl p-2 transition-all duration-300",
+                      backgroundType === 'matrix'
+                        ? "border-[#00ff41]/30 bg-black/20 hover:bg-[#00ff41]/10 hover:border-[#00ff41]/50 hover:shadow-lg hover:shadow-[#00ff41]/25"
+                        : "border-blue-400/30 bg-slate-800/20 hover:bg-blue-400/10 hover:border-blue-400/50 hover:shadow-lg hover:shadow-blue-400/25"
+                    )}
+                  >
+                    <motion.div
+                      animate={isDrawerOpen ? { rotate: 180 } : { rotate: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {isDrawerOpen ? (
+                        <IconX className={cn(
+                          backgroundType === 'matrix' ? "text-[#00ff41]" : "text-blue-400"
+                        )} />
+                      ) : (
+                        <IconMenu2 className={cn(
+                          backgroundType === 'matrix' ? "text-[#00ff41]" : "text-blue-400"
+                        )} />
+                      )}
+                    </motion.div>
+                  </Button>
+                </motion.div>
+              </DrawerTrigger>
+              
+              <DrawerContent className={cn(
+                "min-h-dvh backdrop-blur-xl border-t",
+                backgroundType === 'matrix'
+                  ? "bg-black/90 border-[#00ff41]/30"
+                  : "bg-black/90 border-blue-500/30"
+              )}>
+                <div className={cn(
+                  "absolute inset-0",
+                  backgroundType === 'matrix'
+                    ? "bg-gradient-to-br from-[#00ff41]/5 via-[#ff0080]/5 to-transparent"
+                    : "bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5"
+                )} />
+                
+                <DrawerHeader className="flex justify-between relative z-10">
+                  <DrawerTitle className="flex items-center gap-3">
+                    <Logo className="size-10" />
+                    <span className={cn(
+                      "text-lg font-bold",
+                      backgroundType === 'matrix' ? "text-[#00ff41]" : "text-blue-400"
+                    )}>
+                      Tran Anh Duc
+                    </span>
+                  </DrawerTitle>
+                  <DrawerClose asChild>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      className={cn(
+                        "size-8 border backdrop-blur-sm",
+                        backgroundType === 'matrix'
+                          ? "border-[#00ff41]/30 hover:bg-[#00ff41]/10"
+                          : "border-blue-400/30 hover:bg-blue-400/10"
+                      )}
+                    >
+                      <IconX className={cn(
+                        "size-4",
+                        backgroundType === 'matrix' ? "text-[#00ff41]" : "text-blue-400"
+                      )} />
+                    </Button>
+                  </DrawerClose>
+                </DrawerHeader>
+
+                <div className="px-6 flex flex-col gap-4 relative z-10">
+                  {links.map((link) => (
+                    <motion.div
+                      key={link.title}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 }}
+                    >
+                      <Link
+                        href={link.href}
+                        className={cn(
+                          "flex items-center gap-3 p-4 rounded-xl border backdrop-blur-sm transition-all duration-300",
+                          backgroundType === 'matrix'
+                            ? "border-[#00ff41]/20 hover:border-[#00ff41]/40 hover:bg-[#00ff41]/10"
+                            : "border-blue-400/20 hover:border-blue-400/40 hover:bg-blue-400/10"
+                        )}
+                        onClick={() => setIsDrawerOpen(false)}
+                      >
+                        <link.icon className={cn(
+                          "size-5",
+                          backgroundType === 'matrix' ? "text-[#00ff41]" : "text-blue-400"
+                        )} />
+                        <span className="font-medium text-lg text-white">{link.title}</span>
+                      </Link>
+                    </motion.div>
+                  ))}
+                  
+                  <Separator />
+                  
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="pb-6"
+                  >
+                    <iframe
+                      src="https://github.com/sponsors/ocean28799/button"
+                      title="Sponsor ocean28799"
+                      height="32"
+                      width="114"
+                      style={{ border: "0", borderRadius: "6px" }}
+                    />
+                  </motion.div>
+                </div>
+              </DrawerContent>
+            </Drawer>
+          </div>
+        </motion.div>
       </motion.header>
+
+      {isDisableHeaderScroll && <ScrollToTopButton />}
     </>
   )
 }
 
-// Desktop Navigation Link Component
-const NavLink = ({ link }: { link: typeof navigationLinks[0] }) => {
-  const pathname = usePathname()
-  const isActive = pathname === link.href
+const ScrollToTopButton = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const { backgroundType } = useBackground()
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsVisible(window.scrollY > 100)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  if (!isVisible) return null
 
   return (
-    <Link href={link.href}>
-      <motion.div
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0 }}
+      className="fixed bottom-4 right-8 md:right-20 z-[9999]"
+    >
+      <Button
+        variant="outline"
+        size="icon"
         className={cn(
-          "relative flex items-center space-x-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
-          isActive
-            ? "bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400"
-            : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-purple-600 dark:hover:text-purple-400"
+          "size-12 backdrop-blur-xl rounded-xl border transition-all duration-300 hover:scale-110",
+          backgroundType === 'matrix'
+            ? "bg-black/80 border-[#00ff41]/30 hover:border-[#00ff41]/50 hover:shadow-lg hover:shadow-[#00ff41]/25"
+            : "bg-black/80 border-blue-500/30 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/25"
         )}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          })
+        }}
       >
-        <link.icon className="w-4 h-4" />
-        <span>{link.title}</span>
-        
-        {isActive && (
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 rounded-lg"
-            layoutId="activeBackground"
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          />
-        )}
-      </motion.div>
-    </Link>
+        <IconArrowUp className={cn(
+          "size-5",
+          backgroundType === 'matrix' ? "text-[#00ff41]" : "text-blue-400"
+        )} />
+      </Button>
+    </motion.div>
   )
 }

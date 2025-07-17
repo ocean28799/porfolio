@@ -1,15 +1,32 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { useBackground } from "@/contexts/background-context"
 
 function Card({ className, ...props }: React.ComponentProps<"div">) {
+  const { getThemeColors } = useBackground()
+  const colors = getThemeColors()
+
+  // Dynamic gaming styles based on background theme
+  const dynamicStyles = {
+    "--gaming-primary": colors.primary,
+    "--gaming-accent": colors.accent,
+    "--gaming-glow": colors.glow,
+    "--gaming-text": colors.text,
+    "--gaming-surface": colors.secondary,
+  } as React.CSSProperties
+
   return (
     <div
       data-slot="card"
       className={cn(
-        "bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",
+        "flex flex-col gap-6 rounded-xl py-6 shadow-sm transition-all duration-300",
+        "bg-[var(--gaming-surface)]/80 text-[var(--gaming-text)] border border-[var(--gaming-accent)]/30",
+        "backdrop-blur-sm shadow-lg shadow-[var(--gaming-accent)]/10",
+        "hover:shadow-[var(--gaming-accent)]/20 hover:border-[var(--gaming-accent)]/50",
         className
       )}
+      style={dynamicStyles}
       {...props}
     />
   )

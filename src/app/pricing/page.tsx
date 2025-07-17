@@ -1,51 +1,46 @@
 import { Metadata } from "next"
-import { ModernPricingPage } from "./modern-pricing-page"
+import { PricingPageContent } from "./pricing-content"
+import { PagePerformanceTracker } from "@/components/performance-reporter"
 
 export const metadata: Metadata = {
-  title: "Hire Me - Pricing | Duc Tran",
+  title: "Professional Services & Pricing | Tran Anh Duc - Senior React Native Developer",
   description:
-    "Professional React/Next.js & React Native development services starting at $12/hour. Experienced developer with 4+ years creating scalable web and mobile applications.",
+    "Enterprise-grade React Native, Next.js, and AI integration services. Premium development starting from $15/hour. Complete AI-powered applications from $2,500.",
   keywords: [
-    "React Developer for hire",
-    "Next.js Developer pricing",
-    "React Native Developer rates",
-    "Freelance Developer",
-    "Web Development Services",
-    "Mobile App Development",
-    "$12 per hour developer",
-    "Duc Tran pricing",
-    "TypeScript Developer",
-    "Full Stack Developer",
+    "Senior React Native Developer Pricing",
+    "AI Integration Services",
+    "Enterprise App Development Cost",
+    "React Native Expert Rates",
+    "Next.js 15 Development Pricing",
+    "AI-Powered App Development",
+    "Premium Developer Services",
+    "Enterprise Web Platform Cost",
   ],
   openGraph: {
-    title: "Hire Duc Tran - React/Next.js Developer | Starting at $12/hour",
+    title: "Professional Services & Pricing | Tran Anh Duc - Senior React Native Developer",
     description:
-      "Professional React, Next.js & React Native development services with transparent pricing and quality guarantee. 4+ years of experience.",
-    url: "https://kinhdev.id.vn/pricing",
-    siteName: "Duc Tran",
+      "Enterprise-grade development services for AI-powered mobile and web applications. Premium solutions for serious businesses.",
+    url: "https://trananhducdev.com/pricing",
+    siteName: "Tran Anh Duc",
     type: "website",
     locale: "en_US",
-    images: [
-      {
-        url: "/images/avt-card.png",
-        width: 1200,
-        height: 630,
-        alt: "Duc Tran - Professional Developer for Hire",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hire Duc Tran - React/Next.js Developer | $12/hour",
+    title: "Professional Services & Pricing | Tran Anh Duc - Senior React Native Developer",
     description:
-      "Professional React, Next.js & React Native development services with competitive rates and quality guarantee.",
-    images: ["/images/avt-card.png"],
+      "Competitive pricing for React Native and Full Stack development services. Starting from $15/hour.",
   },
   alternates: {
-    canonical: "https://kinhdev.id.vn/pricing",
+    canonical: "https://trananhducdev.com/pricing",
   },
 }
 
-export default function Page() {
-  return <ModernPricingPage />
+export default function PricingPage() {
+  return (
+    <>
+      <PagePerformanceTracker pageName="pricing" />
+      <PricingPageContent />
+    </>
+  )
 }

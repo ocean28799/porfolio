@@ -39,7 +39,7 @@ export const Cover = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       ref={ref}
-      className="relative hover:bg-neutral-900  group/cover inline-block dark:bg-neutral-900 bg-neutral-100 px-2 py-2  transition duration-200 rounded-sm"
+      className="relative hover:bg-gradient-to-r hover:from-cyan-900/30 hover:to-purple-900/30 group/cover inline-block bg-gradient-to-r from-black/60 to-gray-900/60 backdrop-blur-sm px-2 py-2 transition duration-200 rounded-sm border border-cyan-500/20 hover:border-cyan-400/40"
     >
       <AnimatePresence>
         {hovered && (
@@ -73,7 +73,7 @@ export const Cover = ({
                 maxSize={1}
                 particleDensity={500}
                 className="w-full h-full"
-                particleColor="#FFFFFF"
+                particleColor="#00FFFF"
               />
               <SparklesCore
                 background="transparent"
@@ -81,7 +81,7 @@ export const Cover = ({
                 maxSize={1}
                 particleDensity={500}
                 className="w-full h-full"
-                particleColor="#FFFFFF"
+                particleColor="#8B5CF6"
               />
             </motion.div>
           </motion.div>
@@ -132,7 +132,9 @@ export const Cover = ({
           },
         }}
         className={cn(
-          "dark:text-white inline-block text-neutral-900 relative z-20 group-hover/cover:text-white transition duration-200",
+          "text-cyan-300 inline-block relative z-20 group-hover/cover:text-cyan-400 transition duration-200 font-bold",
+          "[text-shadow:0_0_10px_#00ffff80,0_0_20px_#00ffff40,0_0_30px_#00ffff20]",
+          "group-hover/cover:[text-shadow:0_0_15px_#00ffff,0_0_30px_#00ffff80,0_0_45px_#00ffff40]",
           className
         )}
       >
@@ -202,9 +204,9 @@ export const Beam = ({
             repeatDelay: hovered ? Math.random() * (2 - 1) + 1 : delay ?? 1,
           }}
         >
-          <stop stopColor="#2EB9DF" stopOpacity="0" />
-          <stop stopColor="#3b82f6" />
-          <stop offset="1" stopColor="#3b82f6" stopOpacity="0" />
+          <stop stopColor="#00FFFF" stopOpacity="0" />
+          <stop stopColor="#00FFFF" />
+          <stop offset="1" stopColor="#8B5CF6" stopOpacity="0" />
         </motion.linearGradient>
       </defs>
     </motion.svg>
@@ -220,7 +222,7 @@ export const CircleIcon = ({
   return (
     <div
       className={cn(
-        `pointer-events-none animate-pulse group-hover/cover:hidden group-hover/cover:opacity-100 group h-2 w-2 rounded-full bg-neutral-600 dark:bg-white opacity-20 group-hover/cover:bg-white`,
+        `pointer-events-none animate-pulse group-hover/cover:hidden group-hover/cover:opacity-100 group h-2 w-2 rounded-full bg-cyan-500 opacity-60 group-hover/cover:bg-cyan-400 shadow-lg shadow-cyan-500/50`,
         className
       )}
     ></div>

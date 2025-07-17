@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react"
 
 import { cn } from "@/lib/utils"
 import { motion } from "motion/react"
+import { useBackground } from "@/contexts/background-context"
 
 type Direction = "TOP" | "LEFT" | "BOTTOM" | "RIGHT"
 
@@ -28,6 +29,8 @@ export function HoverBorderGradient({
 >) {
   const [hovered, setHovered] = useState<boolean>(false)
   const [direction, setDirection] = useState<Direction>("TOP")
+  const { getThemeColors } = useBackground()
+  const colors = getThemeColors()
 
   const rotateDirection = (currentDirection: Direction): Direction => {
     const directions: Direction[] = ["TOP", "LEFT", "BOTTOM", "RIGHT"]
@@ -38,17 +41,38 @@ export function HoverBorderGradient({
     return directions[nextIndex]
   }
 
-  const movingMap: Record<Direction, string> = {
-    TOP: "radial-gradient(20.7% 50% at 50% 0%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)",
-    LEFT: "radial-gradient(16.6% 43.1% at 0% 50%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)",
-    BOTTOM:
-      "radial-gradient(20.7% 50% at 50% 100%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)",
-    RIGHT:
-      "radial-gradient(16.2% 41.199999999999996% at 100% 50%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)",
+  // Dynamic gradients based on theme colors
+  const getGradientForDirection = (dir: Direction): string => {
+    const colorGradient = colors.accent
+    switch (dir) {
+      case "TOP":
+        return `radial-gradient(20.7% 50% at 50% 0%, ${colorGradient} 0%, rgba(255, 255, 255, 0) 100%)`
+      case "LEFT":
+        return `radial-gradient(16.6% 43.1% at 0% 50%, ${colorGradient} 0%, rgba(255, 255, 255, 0) 100%)`
+      case "BOTTOM":
+        return `radial-gradient(20.7% 50% at 50% 100%, ${colorGradient} 0%, rgba(255, 255, 255, 0) 100%)`
+      case "RIGHT":
+        return `radial-gradient(16.2% 41.199999999999996% at 100% 50%, ${colorGradient} 0%, rgba(255, 255, 255, 0) 100%)`
+      default:
+        return `radial-gradient(20.7% 50% at 50% 0%, ${colorGradient} 0%, rgba(255, 255, 255, 0) 100%)`
+    }
   }
 
-  const highlight =
-    "radial-gradient(75% 181.15942028985506% at 50% 50%, #3275F8 0%, rgba(255, 255, 255, 0) 100%)"
+  const movingMap: Record<Direction, string> = {
+    TOP: getGradientForDirection("TOP"),
+    LEFT: getGradientForDirection("LEFT"),
+    BOTTOM: getGradientForDirection("BOTTOM"),
+    RIGHT: getGradientForDirection("RIGHT"),
+  }
+
+  const highlight = `radial-gradient(75% 181.15942028985506% at 50% 50%, ${colors.primary} 0%, rgba(255, 255, 255, 0) 100%)`
+
+  // Dynamic styles
+  const dynamicStyles = {
+    "--gaming-primary": colors.primary,
+    "--gaming-accent": colors.accent,
+    "--gaming-text": colors.text,
+  } as React.CSSProperties
 
   useEffect(() => {
     if (!hovered) {
@@ -65,15 +89,18 @@ export function HoverBorderGradient({
       }}
       onMouseLeave={() => setHovered(false)}
       className={cn(
-        "relative flex rounded-full border  content-center bg-black/20 hover:bg-black/10 transition duration-500 dark:bg-white/20 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit",
+        "relative flex rounded-full border content-center transition duration-500 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit",
+        "bg-[var(--gaming-primary)]/10 hover:bg-[var(--gaming-primary)]/20 border-[var(--gaming-accent)]/30",
         containerClassName
       )}
+      style={dynamicStyles}
       {...props}
     >
       <>
         <div
           className={cn(
-            "w-auto text-white z-10 bg-black px-4 py-2 rounded-[inherit]",
+            "w-auto z-10 px-4 py-2 rounded-[inherit] backdrop-blur-sm",
+            "bg-[var(--gaming-primary)]/80 text-[var(--gaming-text)]",
             className
           )}
         >
@@ -97,7 +124,10 @@ export function HoverBorderGradient({
           }}
           transition={{ ease: "linear", duration: duration ?? 1 }}
         />
-        <div className="bg-black absolute z-1 flex-none inset-[2px] rounded-[100px]" />
+        <div 
+          className="absolute z-1 flex-none inset-[2px] rounded-[100px]"
+          style={{ backgroundColor: `var(--gaming-primary)` }}
+        />
       </>
     </Tag>
   )

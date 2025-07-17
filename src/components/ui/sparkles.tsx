@@ -30,34 +30,49 @@ export const SparklesCore = (props: ParticlesProps) => {
     particleDensity,
   } = props
   const [init, setInit] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const controls = useAnimation()
+
   useEffect(() => {
+    setMounted(true)
     initParticlesEngine(async (engine) => {
       await loadSlim(engine)
     }).then(() => {
       setInit(true)
     })
   }, [])
-  const controls = useAnimation()
 
   const particlesLoaded = async (container?: Container) => {
-    if (container) {
-      controls.start({
-        opacity: 1,
-        transition: {
-          duration: 1,
-        },
-      })
+    if (container && mounted && init) {
+      // Use a small delay to ensure the component is fully mounted
+      setTimeout(() => {
+        try {
+          controls.start({
+            opacity: 1,
+            transition: {
+              duration: 1,
+            },
+          })
+        } catch (error) {
+          console.warn('Animation controls not ready:', error)
+        }
+      }, 100)
     }
   }
 
   const generatedId = useId()
+  
+  // Only render particles after component is mounted and initialized
+  if (!mounted || !init) {
+    return <div className={cn("opacity-0", className)} />
+  }
+
   return (
     <motion.div animate={controls} className={cn("opacity-0", className)}>
-      {init && (
-        <Particles
-          id={id || generatedId}
-          className={cn("h-full w-full")}
-          particlesLoaded={particlesLoaded}
+      <Particles
+        id={id || generatedId}
+        className={cn("h-full w-full")}
+        particlesLoaded={particlesLoaded}
           options={{
             background: {
               color: {
@@ -428,7 +443,6 @@ export const SparklesCore = (props: ParticlesProps) => {
             detectRetina: true,
           }}
         />
-      )}
     </motion.div>
   )
 }

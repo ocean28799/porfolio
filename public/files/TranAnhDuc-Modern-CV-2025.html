@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tran Anh Duc - Senior React Native & AI Integration Specialist | Founder @ AI Interview Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-dark: #1e40af;
+            --primary-light: #dbeafe;
+            --secondary-color: #10b981;
+            --accent-color: #8b5cf6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e5e7eb;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background);
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: var(--background);
+            box-shadow: var(--shadow-lg);
+            border-radius: 12px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 40px 30px;
+            margin-bottom: 40px;
+            background: var(--gradient-1);
+            border-radius: 16px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 14px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 2px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 20px;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-3);
+            border-radius: 2px;
+        }
+
+        /* Professional Summary */
+        .summary-card {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-1);
+        }
+
+        .summary-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 35px;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .job-header {
+            margin-bottom: 20px;
+        }
+
+        .job-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .company-period {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .project-section {
+            margin-top: 20px;
+        }
+
+        .project-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            padding-left: 16px;
+            border-left: 3px solid var(--secondary-color);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .tech-tag {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid var(--primary-color);
+        }
+
+        .achievements-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .project-list {
+            margin-left: 0;
+            list-style: none;
+        }
+
+        .project-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .project-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .skill-category h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-category h3::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-item {
+            background: var(--surface);
+            color: var(--text-primary);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: var(--primary-light);
+            border-color: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
+        /* Education Section */
+        .education-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-bottom: 15px;
+        }
+
+        .education-item h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .education-item p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .container {
+                max-width: none;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .header {
+                page-break-inside: avoid;
+                border-radius: 0;
+                margin-bottom: 20px;
+                padding: 20px;
+            }
+
+            .name {
+                font-size: 36px;
+            }
+
+            .title {
+                font-size: 18px;
+            }
+
+            .section {
+                margin-bottom: 25px;
+                page-break-inside: avoid;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .experience-item,
+            .skill-category,
+            .education-item {
+                box-shadow: none;
+                border: 1px solid var(--border);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .contact-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            .header {
+                padding: 25px 20px;
+            }
+
+            .name {
+                font-size: 32px;
+            }
+
+            .title {
+                font-size: 18px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-stack {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">TRAN ANH DUC</h1>
+                <p class="title">Senior React Native & AI Integration Specialist | Founder @ AI Interview Assistant</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:ocean28799@gmail.com">ocean28799@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>🌍</span>
+                        <span>Vietnam (UTC+7) | Remote Worldwide</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🌐</span>
+                        <a href="https://trananhducdev.com">trananhducdev.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>💼</span>
+                        <a href="https://www.linkedin.com/in/trananhduc99/">LinkedIn</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>👨‍💻</span>
+                        <a href="https://github.com/ocean28799">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="summary-card">
+                <div class="summary-text">
+                    Senior React Native and AI Integration Specialist with <strong>4+ years of proven expertise</strong> delivering enterprise-grade mobile and web applications. <strong>Founder of AI Interview Assistant</strong> helping job seekers excel in online interviews with 85% improved success rate. Successfully deployed <strong>50+ production apps serving 2M+ users</strong> across 15+ countries with <strong>95% client satisfaction rate</strong>. Expert in React Native, Next.js 15, TypeScript, and cutting-edge AI integration (OpenAI GPT-4, TensorFlow.js, computer vision). Specialized in architecting scalable, cross-platform solutions that achieve <strong>95% accuracy, 50ms response times</strong>, and drive measurable business outcomes including <strong>50% revenue increases and 40% cost reductions</strong>.
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Apps Deployed</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2M+</span>
+                        <span class="stat-label">Users Served</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Countries</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Competencies -->
+        <section class="section">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Mobile Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">React Native</span>
+                        <span class="skill-item">Expo</span>
+                        <span class="skill-item">iOS Development</span>
+                        <span class="skill-item">Android Development</span>
+                        <span class="skill-item">Cross-Platform</span>
+                        <span class="skill-item">React Navigation</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Next.js 15</span>
+                        <span class="skill-item">React.js</span>
+                        <span class="skill-item">TypeScript</span>
+                        <span class="skill-item">Server-Side Rendering</span>
+                        <span class="skill-item">TailwindCSS</span>
+                        <span class="skill-item">Framer Motion</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">OpenAI GPT-4</span>
+                        <span class="skill-item">DALL-E 3</span>
+                        <span class="skill-item">Whisper API</span>
+                        <span class="skill-item">TensorFlow.js</span>
+                        <span class="skill-item">Computer Vision</span>
+                        <span class="skill-item">Natural Language Processing</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Backend & Database</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Node.js</span>
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">MongoDB</span>
+                        <span class="skill-item">Prisma</span>
+                        <span class="skill-item">Supabase</span>
+                        <span class="skill-item">Firebase</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">AWS</span>
+                        <span class="skill-item">Vercel</span>
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">CI/CD</span>
+                        <span class="skill-item">GitHub Actions</span>
+                        <span class="skill-item">Redis</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Real-time & Payments</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">WebRTC</span>
+                        <span class="skill-item">Socket.io</span>
+                        <span class="skill-item">WebSocket</span>
+                        <span class="skill-item">Stripe</span>
+                        <span class="skill-item">Payment Integration</span>
+                        <span class="skill-item">MQTT</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="job-title">Founder & Lead Developer - AI Interview Assistant</h3>
+                    <p class="company-period">Own Startup | 2025 - Present</p>
+                </div>
+                
+                <ul class="project-list">
+                    <li>Founded revolutionary AI assistant helping job seekers excel in online interviews</li>
+                    <li>Built intelligent system with <strong>real-time voice detection and instant answer suggestions</strong></li>
+                    <li>Achieved <strong>85% improved interview success rate</strong> helping 10K+ candidates land jobs</li>
+                    <li>Developed discreet overlay technology that provides interview coaching without detection</li>
+                    <li>Leading product development, AI training, and user experience optimization</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="job-title">Senior React Native & Full Stack Developer</h3>
+                    <p class="company-period">Freelance | 2021 - Present</p>
+                </div>
+                
+                <ul class="project-list">
+                    <li>Developed <strong>50+ cross-platform mobile and web applications</strong> serving 2M+ users globally</li>
+                    <li>Achieved <strong>95% accuracy in AI-powered features</strong> with 50ms average response times</li>
+                    <li>Integrated cutting-edge AI technologies including OpenAI GPT-4, computer vision, and machine learning models</li>
+                    <li>Built enterprise-grade applications resulting in <strong>50% increase in client revenue</strong> and 40% cost reduction</li>
+                    <li>Specialized in React Native, Next.js 15, TypeScript, and modern state management solutions</li>
+                    <li>Led international teams and maintained <strong>95% client satisfaction rate</strong> across 15+ countries</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <h3 class="job-title">React Native Developer</h3>
+                    <p class="company-period">Contract Projects | 2020 - 2021</p>
+                </div>
+                
+                <ul class="project-list">
+                    <li>Built cross-platform mobile applications using React Native and Expo</li>
+                    <li>Implemented real-time features using WebSocket and Firebase integration</li>
+                    <li>Collaborated with international teams to deliver projects on time and within budget</li>
+                    <li>Optimized app performance resulting in <strong>30% faster load times</strong> and improved user experience</li>
+                    <li>Developed custom UI components and animations for enhanced user engagement</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Key Projects -->
+        <section class="section">
+            <h2 class="section-title">Key Projects & Achievements</h2>
+            
+            <div class="experience-item">
+                <div class="project-section">
+                    <h3 class="project-title">AI Interview Assistant - Founder & Lead Developer (2025)</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Next.js 15</span>
+                        <span class="tech-tag">OpenAI GPT-4</span>
+                        <span class="tech-tag">Whisper API</span>
+                        <span class="tech-tag">Real-time Speech Recognition</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Electron</span>
+                        <span class="tech-tag">WebRTC</span>
+                    </div>
+                    <div class="achievements-badge">Results: 85% improved interview success rate, 10K+ job seekers helped</div>
+                    <ul class="project-list">
+                        <li>Founded revolutionary AI assistant helping job seekers excel in online interviews</li>
+                        <li>Features: Real-time voice detection, instant answer suggestions, interview coaching, confidence boosting</li>
+                        <li>Implemented advanced speech recognition to detect interviewer questions and provide contextual responses</li>
+                        <li>Built discreet overlay system that displays helpful answers without being detected during video calls</li>
+                        <li>Helped thousands of candidates land their dream jobs with improved interview performance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="project-section">
+                    <h3 class="project-title">AI Virtual Assistant - React Native + Next.js (2024)</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Next.js 15</span>
+                        <span class="tech-tag">OpenAI GPT-4</span>
+                        <span class="tech-tag">Whisper API</span>
+                        <span class="tech-tag">Expo</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Supabase</span>
+                    </div>
+                    <div class="achievements-badge">Results: 95% accuracy, 50ms response time, 10K+ active users</div>
+                    <ul class="project-list">
+                        <li>Built complete AI assistant ecosystem with mobile app and web dashboard</li>
+                        <li>Features: Voice-to-text, real-time AI conversations, cross-platform sync, document analysis</li>
+                        <li>Implemented advanced natural language processing with context awareness</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="project-section">
+                    <h3 class="project-title">Smart Analytics & Business Intelligence App (2024)</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">TensorFlow.js</span>
+                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">OpenAI API</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                    <div class="achievements-badge">Results: 40% faster decision making, deployed to 500+ enterprises</div>
+                    <ul class="project-list">
+                        <li>Developed enterprise mobile app with AI-powered data analytics and predictive modeling</li>
+                        <li>Features: AI-powered insights, real-time dashboards, predictive analytics, natural language queries</li>
+                        <li>Integrated machine learning models for trend analysis and forecasting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="project-section">
+                    <h3 class="project-title">AI Content Creation & Marketing Platform (2024)</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Next.js 15</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">OpenAI GPT-4</span>
+                        <span class="tech-tag">DALL-E 3</span>
+                        <span class="tech-tag">Vercel AI SDK</span>
+                        <span class="tech-tag">Stripe</span>
+                    </div>
+                    <div class="achievements-badge">Results: 3x faster content creation, serving 1000+ brands</div>
+                    <ul class="project-list">
+                        <li>Built SaaS platform for AI-powered content generation and social media automation</li>
+                        <li>Features: Multi-modal content generation, social media automation, performance analytics</li>
+                        <li>Implemented subscription management and usage tracking system</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="project-section">
+                    <h3 class="project-title">Smart Home Ecosystem with AI Automation (2023)</h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">OpenAI API</span>
+                        <span class="tech-tag">MQTT</span>
+                        <span class="tech-tag">AWS IoT</span>
+                    </div>
+                    <div class="achievements-badge">Results: 30% energy savings, 95% user satisfaction</div>
+                    <ul class="project-list">
+                        <li>Created intelligent home automation platform with AI-driven energy optimization</li>
+                        <li>Features: AI-driven energy optimization, predictive maintenance, natural language control</li>
+                        <li>Integrated with 100+ smart device types and IoT protocols</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section class="section">
+            <h2 class="section-title">Education & Certifications</h2>
+            <div class="education-item">
+                <h3>Self-Taught Developer</h3>
+                <p>Specialized in Modern Web and Mobile Technologies with continuous learning through online courses, documentation, and hands-on projects</p>
+            </div>
+            <div class="education-item">
+                <h3>Professional Certifications</h3>
+                <p>React Native, Next.js, AI Integration, and Cloud Architecture specializations</p>
+            </div>
+        </section>
+
+        <!-- Additional Information -->
+        <section class="section">
+            <h2 class="section-title">Additional Information</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages & Communication</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Vietnamese (Native)</span>
+                        <span class="skill-item">English (Professional)</span>
+                        <span class="skill-item">Technical Writing</span>
+                        <span class="skill-item">Client Communication</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Work Preferences</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Remote Work</span>
+                        <span class="skill-item">International Collaboration</span>
+                        <span class="skill-item">Full-time</span>
+                        <span class="skill-item">Contract</span>
+                        <span class="skill-item">Freelance</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
