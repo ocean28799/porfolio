@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: "Professional Services & Pricing | Tran Anh Duc - Senior React Native Developer",
     description:
       "Enterprise-grade development services for AI-powered mobile and web applications. Premium solutions for serious businesses.",
-    url: "https://trananhducdev.com/pricing",
+    url: "https://porfolio-ocean28799s-projects.vercel.app/pricing",
     siteName: "Tran Anh Duc",
     type: "website",
     locale: "en_US",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       "Competitive pricing for React Native and Full Stack development services. Starting from $15/hour.",
   },
   alternates: {
-    canonical: "https://trananhducdev.com/pricing",
+    canonical: "https://porfolio-ocean28799s-projects.vercel.app/pricing",
   },
 }
 

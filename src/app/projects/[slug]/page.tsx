@@ -41,11 +41,11 @@ export async function generateMetadata({ params }: ProjectDetailPageProps): Prom
     openGraph: {
       title: project.title,
       description: project.description,
-      url: `https://trananhducdev.com/projects/${slug}`,
+      url: `https://porfolio-ocean28799s-projects.vercel.app/${slug}`,
       siteName: "Tran Anh Duc Portfolio",
       images: [
         {
-          url: `https://trananhducdev.com${project.src}`,
+          url: `https://porfolio-ocean28799s-projects.vercel.app${project.src}`,
           width: 1200,
           height: 630,
           alt: project.title,
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: ProjectDetailPageProps): Prom
       card: "summary_large_image",
       title: project.title,
       description: project.description,
-      images: [`https://trananhducdev.com${project.src}`],
+      images: [`https://porfolio-ocean28799s-projects.vercel.app${project.src}`],
     },
     keywords: [...project.techStack, "React Native", "Next.js", "AI Integration", "Cross-platform", "Mobile Apps", "Web Development"],
   }

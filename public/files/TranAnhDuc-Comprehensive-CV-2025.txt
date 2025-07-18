@@ -5,7 +5,7 @@ CONTACT INFORMATION
 ==================
 Email: ocean28799@gmail.com
 Location: Vietnam (UTC+7) | Remote Worldwide
-Portfolio: https://trananhducdev.com
+Portfolio: https://porfolio-ocean28799s-projects.vercel.app
 LinkedIn: linkedin.com/in/trananhduc99
 GitHub: github.com/ocean28799
 Phone: Available upon request
@@ -263,5 +263,5 @@ Available for immediate start on exciting projects in mobile development, AI int
 Let's build something amazing together!
 
 Email: ocean28799@gmail.com
-Portfolio: https://trananhducdev.com
+Portfolio: https://porfolio-ocean28799s-projects.vercel.app
 Response Time: Within 12 hours
