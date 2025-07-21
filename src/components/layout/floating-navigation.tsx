@@ -98,9 +98,9 @@ export function FloatingNavigation() {
           })}
           
           {/* Language Switcher */}
-          <div className="ml-2 pl-2 border-l border-slate-600">
+          {/* <div className="ml-2 pl-2 border-l border-slate-600">
             <LanguageSwitcher />
-          </div>
+          </div> */}
         </div>
       </motion.nav>
 
@@ -109,7 +109,7 @@ export function FloatingNavigation() {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="fixed bottom-6 right-6 z-50 md:hidden"
+        className="fixed top-6 right-6 z-50 md:hidden"
       >
         <Button
           size="lg"
