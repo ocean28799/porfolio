@@ -45,11 +45,11 @@ export const metadata: Metadata = {
     title: "Tran Anh Duc | Senior React Native & AI Integration Specialist Portfolio",
     description:
       "Senior developer with 4+ years of proven expertise in enterprise-grade applications. 50+ apps deployed worldwide with cutting-edge React Native, Next.js 15, and AI integration.",
-    url: "https://trananhducdev.vercel.app",
+    url: "https://porfolio-eight-henna.vercel.app",
     type: "website",
     images: [
       {
-        url: "https://trananhducdev.vercel.app/images/og-image.png",
+        url: "https://porfolio-eight-henna.vercel.app/images/og-image.png",
         width: 1200,
         height: 630,
         alt: "Tran Anh Duc - React Native + AI Integration Specialist Portfolio",
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     description:
       "Explore Tran Anh Duc's React Native and AI integration projects featuring OpenAI, TensorFlow, and modern cross-platform development.",
     images: [
-      "https://trananhducdev.vercel.app/images/og-image.png",
+      "https://porfolio-eight-henna.vercel.app/images/og-image.png",
     ],
   },
   icons: {
