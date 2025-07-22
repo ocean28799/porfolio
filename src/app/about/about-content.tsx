@@ -190,7 +190,7 @@ export function AboutPageContent() {
                   className="border-slate-600 text-slate-300 hover:bg-slate-800 shadow-lg"
                   asChild
                 >
-                  <Link href="/public/files/TranAnhDuc-ATS-CV-2025.html" target="_blank">
+                  <Link href="/files/TranAnhDuc-ATS-ReactNative-CV.pdf" target="_blank">
                     <Download className="w-4 h-4 mr-2" />
                     Download CV
                   </Link>
