@@ -5,7 +5,7 @@
 Founder @ AI Interview Assistant
 
 <p align="center">
-  <a href="https://porfolio-ocean28799s-projects.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-Live-blue?logo=vercel" /></a>
+  <a href="https://porfolio-eight-henna.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-Live-blue?logo=vercel" /></a>
   <a href="https://github.com/ocean28799"><img src="https://img.shields.io/badge/GitHub-ocean28799-black?logo=github" /></a>
   <a href="https://linkedin.com/in/trananhduc99"><img src="https://img.shields.io/badge/LinkedIn-trananhduc99-blue?logo=linkedin" /></a>
   <a href="mailto:ocean28799@gmail.com"><img src="https://img.shields.io/badge/Email-ocean28799@gmail.com-red?logo=gmail" /></a>
@@ -100,7 +100,7 @@ pnpm dev
 
 Visit [http://localhost:3000](http://localhost:3000) to view the portfolio.
 
-Live Portfolio: [https://porfolio-ocean28799s-projects.vercel.app/](https://porfolio-ocean28799s-projects.vercel.app/)
+Live Portfolio: [https://porfolio-eight-henna.vercel.app/](https://porfolio-eight-henna.vercel.app/)
 
 ---
 
@@ -119,7 +119,7 @@ Live Portfolio: [https://porfolio-ocean28799s-projects.vercel.app/](https://porf
 
 **Tran Anh Duc**  
 Email: [ocean28799@gmail.com](mailto:ocean28799@gmail.com)  
-Portfolio: [porfolio-ocean28799s-projects.vercel.app](https://porfolio-ocean28799s-projects.vercel.app/)  
+Portfolio: [porfolio-ocean28799s-projects.vercel.app](https://porfolio-eight-henna.vercel.app/)  
 LinkedIn: [linkedin.com/in/trananhduc99](https://linkedin.com/in/trananhduc99)  
 GitHub: [github.com/ocean28799](https://github.com/ocean28799)
 

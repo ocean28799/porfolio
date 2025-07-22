@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: ProjectDetailPageProps): Prom
     openGraph: {
       title: project.title,
       description: project.description,
-      url: `https://porfolio-ocean28799s-projects.vercel.app/${slug}`,
+      url: `https://porfolio-eight-henna.vercel.app/${slug}`,
       siteName: "Tran Anh Duc Portfolio",
       images: [
         {

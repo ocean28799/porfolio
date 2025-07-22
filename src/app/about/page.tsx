@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "About | Tran Anh Duc - Senior React Native & AI Integration Specialist",
     description:
       "Senior developer with 4+ years of proven expertise in enterprise-grade mobile and web applications. 50+ apps deployed worldwide.",
-    url: "https://porfolio-ocean28799s-projects.vercel.app/about",
+    url: "https://porfolio-eight-henna.vercel.app/about",
     siteName: "Tran Anh Duc",
     type: "website",
     locale: "en_US",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       "Learn more about Tran Anh Duc - Senior React Native and AI Integration Specialist with 4+ years of experience.",
   },
   alternates: {
-    canonical: "https://porfolio-ocean28799s-projects.vercel.app/about",
+    canonical: "https://porfolio-eight-henna.vercel.app/about",
   },
 }
 
