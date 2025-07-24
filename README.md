@@ -305,10 +305,6 @@ portfolio/
 
 ---
 
-## 👤 Contact
-
-```
-
 ---
 
 ## 💡 Key Features Showcase
