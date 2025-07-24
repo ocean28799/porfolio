@@ -1,4 +1,3 @@
-export { Chatbot } from './chatbot'
 export { AdvancedChatbot } from './advanced-chatbot'
 export { ChatbotWrapper } from './chatbot-wrapper'
 export { ChatbotClient } from './chatbot-client'

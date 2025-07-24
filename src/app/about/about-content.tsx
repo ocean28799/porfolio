@@ -54,7 +54,7 @@ export function AboutPageContent() {
           {/* Hero Section */}
           <motion.div variants={fadeInUp} className="text-center space-y-12">
             <div className="relative">
-              <h1 className="text-7xl md:text-9xl font-black bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 bg-clip-text text-transparent leading-tight">
+              <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-9xl font-black bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 bg-clip-text text-transparent leading-tight">
                 {t('aboutPage.title')}
               </h1>
             </div>
@@ -63,11 +63,11 @@ export function AboutPageContent() {
               className="max-w-5xl mx-auto space-y-6"
               variants={fadeInUp}
             >
-              <p className="text-2xl md:text-3xl text-white font-light leading-relaxed">
+              <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl text-white font-light leading-relaxed">
                 Crafting the Future of 
                 <span className="font-bold bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent"> Digital Innovation</span>
               </p>
-              <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-base xs:text-lg sm:text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl mx-auto px-4">
                 Transforming visionary ideas into intelligent, scalable applications through cutting-edge AI integration and modern development excellence.
               </p>
             </motion.div>

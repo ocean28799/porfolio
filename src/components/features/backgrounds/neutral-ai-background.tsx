@@ -3,10 +3,54 @@
 import { motion } from "motion/react"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
-import { ProfessionalRain } from "../../ui/professional-rain"
+import { useIsClient } from "@/hooks/use-client"
+
+// Simple rain effect replacement
+const SimpleRain = () => {
+  const isClient = useIsClient()
+  const [rainDrops, setRainDrops] = useState<Array<{
+    id: number
+    left: string
+    top: string
+    delay: string
+  }>>([])
+
+  useEffect(() => {
+    if (!isClient) return
+    
+    const drops = Array.from({ length: 50 }).map((_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 3}s`,
+    }))
+    setRainDrops(drops)
+  }, [isClient])
+
+  if (!isClient || rainDrops.length === 0) {
+    return <div className="absolute inset-0 overflow-hidden opacity-10" />
+  }
+
+  return (
+    <div className="absolute inset-0 overflow-hidden opacity-10">
+      {rainDrops.map((drop) => (
+        <div
+          key={drop.id}
+          className="absolute w-0.5 h-4 bg-blue-200 animate-pulse"
+          style={{
+            left: drop.left,
+            top: drop.top,
+            animationDelay: drop.delay,
+          }}
+        />
+      ))}
+    </div>
+  )
+}
 
 // Subtle AI/Gaming particles for neutral theme
 const NeutralAIParticles = () => {
+  const isClient = useIsClient()
   const [particles, setParticles] = useState<Array<{ 
     id: number; 
     x: number; 
@@ -18,6 +62,8 @@ const NeutralAIParticles = () => {
   }>>([])
 
   useEffect(() => {
+    if (!isClient) return
+    
     const colors = ['#60a5fa', '#a78bfa', '#34d399', '#f59e0b', '#e2e8f0']
     const types: Array<'node' | 'data' | 'connection' | 'pulse'> = ['node', 'data', 'connection', 'pulse']
     
@@ -31,11 +77,11 @@ const NeutralAIParticles = () => {
       color: colors[Math.floor(Math.random() * colors.length)],
     }))
     setParticles(particleArray)
-  }, [])
+  }, [isClient])
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particles.map((particle) => (
+      {isClient && particles.map((particle) => (
         <motion.div
           key={particle.id}
           className="absolute"
@@ -251,13 +297,13 @@ export function NeutralAIBackground({
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
       
       {/* Professional Rain Effect */}
-      <ProfessionalRain intensity={25} speed={0.6} />
+      <SimpleRain />
       
       {/* Subtle pattern overlay */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(96,165,250,0.1),transparent_50%)]" />
       
       {/* Professional Rain Effect */}
-      <ProfessionalRain intensity={25} speed={0.6} />
+      <SimpleRain />
       
       {/* Animated background elements */}
       <AmbientOrbs />

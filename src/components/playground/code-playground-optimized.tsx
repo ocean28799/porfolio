@@ -5,12 +5,11 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Code, Loader2 } from 'lucide-react'
 
-// Lazy load the heavy playground component
-const MultiFilePlayground = lazy(() => 
-  import('./multi-file-playground-optimized').then(module => ({ 
-    default: module.default 
-  }))
-)
+// Lazy load the heavy playground component with proper typing
+const MultiFilePlayground = lazy(async () => {
+  const moduleExport = await import('./multi-file-playground-optimized')
+  return { default: moduleExport.default }
+})
 
 // Loading component with better UX
 function PlaygroundLoader() {

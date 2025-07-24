@@ -6,6 +6,7 @@ import { useState, memo, useCallback, useMemo } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
+import { useAnimation } from "@/hooks/use-animation"
 
 // Generate project slugs from titles
 function generateSlug(title: string): string {
@@ -29,6 +30,8 @@ const ProjectCard = memo(({
   isHovered: boolean
   onHover: (index: number | null) => void
 }) => {
+  const animConfig = useAnimation()
+  
   const handleMouseEnter = useCallback(() => {
     onHover(index)
   }, [onHover, index])
@@ -55,15 +58,14 @@ const ProjectCard = memo(({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      initial={animConfig.enableAnimations ? { opacity: 0, y: 30 } : {}}
+      animate={animConfig.enableAnimations ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: animConfig.defaultDuration, delay: animConfig.enableAnimations ? index * 0.05 : 0 }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        "group relative bg-white dark:bg-slate-900 rounded-xl shadow-lg hover:shadow-2xl",
-        "border border-slate-200 dark:border-slate-800 overflow-hidden",
-        "transition-all duration-300 transform hover:scale-105",
+        "group relative bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 overflow-hidden transition-all duration-300",
+        animConfig.enableAnimations ? "hover:shadow-2xl transform hover:scale-105" : "hover:shadow-xl",
         isHovered && "ring-2 ring-blue-500/20"
       )}
     >
@@ -76,7 +78,9 @@ const ProjectCard = memo(({
           src={project.src}
           alt={project.title}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-110"
+          className={`object-cover transition-transform duration-300 ${
+            animConfig.enableAnimations ? 'group-hover:scale-110' : ''
+          }`}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority={index < 3} // Priority for first 3 images
         />

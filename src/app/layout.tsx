@@ -6,6 +6,7 @@ import { PerformanceReporter } from "@/components/performance-reporter"
 import { I18nProvider } from "@/components/i18n-provider"
 import { ChatbotClient } from "@/components/chatbot"
 import { FloatingNavigation } from "@/components/layout/floating-navigation"
+import { BackgroundToggle } from "@/components/ui/background-toggle"
 import { AdvancedParticleBackground } from "@/components/features/backgrounds/advanced-particle-background"
 import "@/styles/globals.css"
 import { Analytics } from "@vercel/analytics/next"
@@ -92,6 +93,7 @@ export default function RootLayout({
                 <ChatbotClient />
                 <PerformanceReporter />
                 <FloatingNavigation />
+                <BackgroundToggle />
                 <AdvancedParticleBackground />
               </BackgroundProvider>
             </CustomThemeProvider>

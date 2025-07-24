@@ -1,5 +1,0 @@
-export { aiChatProject } from './ai-chat'
-export { aiImageGeneratorProject } from './ai-image-generator'
-export { voiceToTextProject } from './voice-to-text'
-export { aiVoiceAssistantProject } from './ai-voice-assistant'
-export { textTranslatorProject } from './text-translator'

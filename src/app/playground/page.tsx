@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { CodePlayground } from '@/components/playground/code-playground'
+import { CodePlayground } from '@/components/playground/code-playground-optimized'
 import { PagePerformanceTracker } from '@/components/performance-reporter'
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function PlaygroundPage() {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-14 xs:pt-12 sm:pt-16 lg:pt-20 pb-safe">
       <PagePerformanceTracker pageName="playground" />
       <CodePlayground />
     </div>

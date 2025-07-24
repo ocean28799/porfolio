@@ -618,13 +618,13 @@ What would you like to know more about?`,
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            className="fixed left-6 top-1/2 -translate-y-1/2 z-50"
+            className="fixed right-4 bottom-4 z-50 xs:right-4 xs:bottom-4 sm:left-auto sm:right-4 sm:bottom-4 sm:top-auto sm:translate-y-0"
           >              <div className="relative">
                 <Button
                   onClick={() => setIsOpen(true)}
                   size="lg"
                   className={cn(
-                    "rounded-full w-12 h-12 shadow-2xl hover:shadow-3xl transition-all duration-300",
+                    "rounded-full w-12 h-12 sm:w-11 sm:h-11 shadow-2xl hover:shadow-3xl transition-all duration-300 touch-action-manipulation",
                     "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-blue-600 hover:via-purple-600 hover:to-pink-600",
                     "border-2 border-white/30 backdrop-blur-sm",
                     "ring-2 ring-white/20 hover:ring-white/30",
@@ -633,13 +633,13 @@ What would you like to know more about?`,
                   title="Open AI Assistant"
                 >
                   <div className="relative z-10">
-                    <MessageCircle className="w-5 h-5 text-white" />
+                    <MessageCircle className="w-5 h-5 sm:w-4 sm:h-4 text-white" />
                     <motion.div
                       animate={{ rotate: 360 }}
                       transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                      className="absolute -top-0.5 -right-0.5"
+                      className="absolute -top-0.5 -right-0.5 sm:-top-0.5 sm:-right-0.5"
                     >
-                      <Sparkles className="w-3 h-3 text-yellow-300" />
+                      <Sparkles className="w-3 h-3 sm:w-2.5 sm:h-2.5 text-yellow-300" />
                     </motion.div>
                   </div>
                   {/* Floating button shine effect */}
@@ -661,17 +661,17 @@ What would you like to know more about?`,
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed left-20 top-1/2 -translate-y-1/2 z-50 w-[480px] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-3rem)] sm:w-[420px] md:w-[480px] lg:w-[520px]"
+            className="fixed left-2 right-2 top-2 bottom-2 z-50 w-auto max-w-none max-h-none xs:left-2 xs:right-2 xs:top-2 xs:bottom-2 sm:w-[calc(100vw-1rem)] sm:left-2 sm:right-2 sm:bottom-2 sm:top-auto sm:translate-y-0 sm:max-h-[calc(100vh-8rem)] md:w-[480px] md:left-8 md:right-auto md:top-[40%] md:bottom-auto md:-translate-y-1/2 lg:w-[520px] lg:left-20"
+            style={{ bottom: 0 }}
           >
             <Card className={cn(
-              "overflow-hidden backdrop-blur-xl",
-              "chatbot-card",
+              "overflow-hidden backdrop-blur-xl chatbot-card",
               "shadow-2xl",
-              "h-[700px] sm:h-[650px] md:h-[700px] lg:h-[750px] flex flex-col"
+              "h-[calc(100vh)] xs:h-[calc(100vh)] sm:h-[calc(100vh-8rem)] sm:max-h-[calc(100vh-8rem)] md:h-[650px] lg:h-[700px] xl:h-[750px] flex flex-col"
             )}>
               <>
                 {/* Messages */}
-                  <div className="flex-1 overflow-y-auto p-3 space-y-4 chatbot-scrollbar min-h-0 relative">
+                  <div className="flex-1 overflow-y-auto p-2 xs:p-2 sm:p-2 space-y-3 xs:space-y-3 sm:space-y-3 chatbot-scrollbar min-h-0 relative" style={{ WebkitOverflowScrolling: 'touch' }}>
                     {/* Close button in top-right corner */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -821,7 +821,7 @@ What would you like to know more about?`,
                         <div className="flex-1 chatbot-section-divider"></div>
                       </div>
                       <div className="chatbot-quick-actions-container p-2">
-                        <div className="grid grid-cols-4 gap-1.5 relative z-10">
+                        <div className="grid grid-cols-4 xs:grid-cols-4 sm:grid-cols-4 md:grid-cols-4 gap-1.5 relative z-10">
                           {filteredQuickActions.map((action, index) => (
                             <motion.div
                               key={action.id}
@@ -833,7 +833,7 @@ What would you like to know more about?`,
                             >
                               <div
                                 className={cn(
-                                  "chatbot-quick-action-badge cursor-pointer w-full justify-center py-1.5 px-2 flex items-center gap-1",
+                                  "chatbot-quick-action-badge cursor-pointer w-full justify-center py-1.5 px-0.5 xs:px-0.5 sm:px-1 md:px-2 flex items-center gap-0.5 xs:gap-0.5 sm:gap-1 min-h-[2.5rem]",
                                   `chatbot-quick-action-${action.id}`,
                                   activeCategory === action.category && "ring-2 ring-blue-500 ring-offset-1",
                                   lastActionId === action.id && "scale-95 opacity-75",
@@ -841,8 +841,8 @@ What would you like to know more about?`,
                                 )}
                                 onClick={() => handleQuickAction(action)}
                               >
-                                <div className="text-xs chatbot-quick-action-icon">{action.icon}</div>
-                                <span className="font-medium text-xs">{action.label}</span>
+                                <div className="text-xs chatbot-quick-action-icon flex-shrink-0">{action.icon}</div>
+                                <span className="font-medium text-xs xs:text-xs sm:text-xs truncate">{action.label}</span>
                               </div>
                             </motion.div>
                           ))}
@@ -851,9 +851,9 @@ What would you like to know more about?`,
                     </div>
 
                     {/* Input */}
-                    <div className="chatbot-input-container">
+                    <div className="chatbot-input-container p-2 xs:p-2 sm:p-2">
                       <div className="relative z-10">
-                        <div className="chatbot-input-group">
+                        <div className="chatbot-input-group gap-1.5 xs:gap-1.5 sm:gap-1.5">
                           <div className="chatbot-input-wrapper">
                             <Input
                               value={inputValue}
@@ -861,9 +861,10 @@ What would you like to know more about?`,
                               onKeyPress={handleKeyPress}
                               placeholder={getPlaceholder()}
                               className={cn(
-                                "chatbot-input-field chatbot-tooltip",
+                                "chatbot-input-field chatbot-tooltip text-base sm:text-sm h-11 sm:h-10",
                                 isTyping && "chatbot-input-loading"
                               )}
+                              style={{ fontSize: '16px' }} // Prevents zoom on iOS
                               data-tooltip={isTyping ? "AI is responding..." : "Type your message here"}
                               disabled={isTyping}
                             />
@@ -873,7 +874,7 @@ What would you like to know more about?`,
                               onClick={handleSend}
                               disabled={!inputValue.trim() || isTyping}
                               className={cn(
-                                "chatbot-send-button px-3 py-2 chatbot-tooltip",
+                                "chatbot-send-button px-3 py-2 chatbot-tooltip min-w-[44px] h-11 sm:h-10 touch-action-manipulation",
                                 isTyping && "loading"
                               )}
                               data-tooltip="Send message"
@@ -883,7 +884,7 @@ What would you like to know more about?`,
                                 animate={isTyping ? { rotate: 360 } : { rotate: 0 }}
                                 transition={{ duration: 1, repeat: isTyping ? Infinity : 0, ease: "linear" }}
                               >
-                                <Send className="w-4 h-4" />
+                                <Send className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
                               </motion.div>
                             </Button>
                           </div>

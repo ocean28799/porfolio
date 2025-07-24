@@ -9,8 +9,8 @@ import { Badge } from "@/components/ui/badge"
 import { GlowingEffect } from "@/components/ui/glowing-effect"
 import { MY_NETWORKS } from "@/lib/constants/my-networks"
 import { Code, Layers, UserRound, Zap } from "lucide-react"
-import { MyResume } from "../my-resume"
 import { useBackground } from "@/contexts/background-context"
+import { MyResume } from "../my-resume"
 
 export function MyInformation() {
   const { t } = useTranslation()
@@ -18,7 +18,7 @@ export function MyInformation() {
   return (
     <>
       <div className="flex flex-col gap-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 w-full">
+        <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-3 xs:gap-4 w-full px-2 xs:px-0">
           {/* <Card className="col-span-1 md:col-span-1 lg:col-span-2 dark:bg-black/50 bg-white/50 p-0 order-2 md:order-1">
             <CardContent className="!p-0 h-full">
               <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background">

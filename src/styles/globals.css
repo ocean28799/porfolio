@@ -3,6 +3,125 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Extra Small Screen Responsive Design (< 640px) */
+@media (max-width: 639px) {
+  /* Typography scaling for very small screens */
+  html {
+    font-size: 14px;
+  }
+  
+  /* Container padding adjustments */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Hero section text scaling */
+  .hero-title {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* Card padding adjustments */
+  .card-xs {
+    padding: 0.75rem !important;
+  }
+  
+  /* Button size adjustments for touch */
+  .btn-xs {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  /* Grid gap adjustments */
+  .grid-xs-gap {
+    gap: 0.5rem !important;
+  }
+  
+  /* Text size adjustments */
+  .text-xs-base {
+    font-size: 0.875rem !important;
+  }
+  
+  .text-xs-lg {
+    font-size: 1rem !important;
+  }
+  
+  .text-xs-xl {
+    font-size: 1.125rem !important;
+  }
+  
+  /* Pricing page specific styles */
+  .pricing-card-content {
+    padding: 0.75rem !important;
+  }
+  
+  .pricing-card-header {
+    padding: 0.75rem 0.75rem 0.5rem !important;
+  }
+  
+  /* Touch-friendly interactive elements */
+  .pricing-button {
+    min-height: 44px !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  /* Better text readability */
+  .pricing-feature-text {
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Improved spacing for mobile */
+  .pricing-section-spacing {
+    margin-bottom: 2rem !important;
+  }
+  
+  .pricing-card-spacing {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* Mobile Menu Enhancements */
+@media (max-width: 768px) {
+  /* Smooth drawer animations */
+  [data-slot="drawer-content"] {
+    transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  
+  /* Better touch targets for mobile menu items */
+  .mobile-menu-item {
+    min-height: 60px;
+    min-width: 60px;
+    touch-action: manipulation;
+  }
+  
+  /* Prevent zoom on touch inputs */
+  .mobile-menu-trigger {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Improved scrolling for mobile menu */
+  .mobile-menu-content {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
+}
+
+/* Enhanced mobile drawer overlay */
+[data-slot="drawer-overlay"] {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 /* {
   "0%, 100%": {
     transform: "translate(-50%, -50%) scale(1)",

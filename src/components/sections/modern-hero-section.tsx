@@ -127,7 +127,7 @@ export function ModernHeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-black tracking-tight">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-tight">
             <span className="block text-white">Tran Anh Duc</span>
             <motion.span 
               className="block bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent"
@@ -152,7 +152,7 @@ export function ModernHeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
-          <div className="text-2xl md:text-3xl text-slate-300 font-light">
+          <div className="text-lg xs:text-xl sm:text-2xl md:text-3xl text-slate-300 font-light">
             <motion.span
               key={currentRole}
               initial={{ opacity: 0, y: 20 }}
@@ -173,7 +173,7 @@ export function ModernHeroSection() {
 
         {/* Description */}
         <motion.p
-          className="text-xl md:text-2xl text-slate-400 max-w-4xl mx-auto leading-relaxed"
+          className="text-base xs:text-lg sm:text-xl md:text-2xl text-slate-400 max-w-4xl mx-auto leading-relaxed px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
@@ -187,7 +187,7 @@ export function ModernHeroSection() {
 
         {/* Key Stats */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto py-8"
+          className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 xs:gap-4 sm:gap-6 max-w-4xl mx-auto py-6 xs:py-8 px-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1 }}

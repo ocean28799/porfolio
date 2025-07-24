@@ -3,10 +3,29 @@
 import { motion } from "motion/react"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
-import { MatrixRain } from "../../ui/matrix-rain"
-import { CyberpunkTerminal } from "../../ui/cyberpunk-terminal"
-import { DataStream } from "../../ui/data-stream"
 import { useIsClient } from "@/hooks/use-client"
+
+// Simple terminal effect
+const SimpleCyberpunkTerminal = () => {
+  return (
+    <div className="absolute bottom-4 left-4 bg-black/80 p-4 rounded border border-green-500">
+      <div className="text-green-400 text-xs font-mono">
+        <div>$ system.init()</div>
+        <div>$ loading...</div>
+      </div>
+    </div>
+  )
+}
+
+// Simple data stream effect
+const SimpleDataStream = () => {
+  return (
+    <div className="absolute top-4 right-4 text-cyan-400 text-xs font-mono">
+      <div>DATA_STREAM_ACTIVE</div>
+      <div>STATUS: ONLINE</div>
+    </div>
+  )
+}
 
 // Enhanced Matrix AI/Gaming particles with cyberpunk aesthetics
 const EnhancedMatrixParticles = () => {
@@ -16,6 +35,7 @@ const EnhancedMatrixParticles = () => {
     y: number; 
     delay: number; 
     size: number; 
+    duration: number;
     type: 'data' | 'circuit' | 'glow' | 'hex';
     color: string;
   }>>([])
@@ -34,6 +54,7 @@ const EnhancedMatrixParticles = () => {
       y: Math.random() * 100,
       delay: Math.random() * 5,
       size: Math.random() * 6 + 2,
+      duration: 4 + Math.random() * 3,
       type: types[Math.floor(Math.random() * types.length)],
       color: colors[Math.floor(Math.random() * colors.length)],
     }))
@@ -57,7 +78,7 @@ const EnhancedMatrixParticles = () => {
             rotate: particle.type === 'hex' ? [0, 360] : [0, 180, 0],
           }}
           transition={{
-            duration: 4 + Math.random() * 3,
+            duration: particle.duration,
             repeat: Infinity,
             delay: particle.delay,
             ease: "easeInOut",
@@ -294,8 +315,8 @@ const CyberpunkHUD = () => {
 
       {/* Top-right corner data streams */}
       <div className="absolute top-4 right-4 text-[#ff0080] font-mono text-xs opacity-70">
-        <CyberpunkTerminal />
-        <DataStream />
+        <SimpleCyberpunkTerminal />
+        <SimpleDataStream />
       </div>
 
       {/* Bottom scanning line */}
@@ -368,6 +389,166 @@ const CircuitPattern = () => {
   )
 }
 
+// Digital Matrix Code Streams
+const MatrixCodeStreams = () => {
+  const isClient = useIsClient()
+  const [streams, setStreams] = useState<Array<{
+    id: number
+    x: number
+    y: number
+    length: number
+    speed: number
+    delay: number
+    chars: string[]
+  }>>([])
+
+  useEffect(() => {
+    if (!isClient) return
+    
+    const binaryChars = ['0', '1', '01', '10', '001', '101', '110', '011']
+    const matrixChars = ['ﾊ', 'ﾐ', 'ﾋ', 'ｰ', 'ｳ', 'ｼ', 'ﾅ', 'ﾓ', 'ﾆ', 'ｻ', 'ﾜ', 'ﾂ', 'ｵ', 'ﾘ', 'ｱ', 'ﾎ', 'ﾃ', 'ﾏ', 'ｹ', 'ﾒ', 'ｴ', 'ｶ', 'ｷ', 'ﾑ', 'ﾕ', 'ﾗ', 'ｾ', 'ﾈ', 'ｽ', 'ﾀ', 'ﾇ', 'ﾍ']
+    const allChars = [...binaryChars, ...matrixChars]
+    
+    const streamArray = Array.from({ length: 25 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      length: Math.floor(Math.random() * 15) + 8,
+      speed: Math.random() * 2 + 1,
+      delay: Math.random() * 3,
+      chars: Array.from({ length: Math.floor(Math.random() * 15) + 8 }, () => 
+        allChars[Math.floor(Math.random() * allChars.length)]
+      )
+    }))
+    setStreams(streamArray)
+  }, [isClient])
+
+  if (!isClient) return null
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-25">
+      {streams.map((stream) => (
+        <motion.div
+          key={stream.id}
+          className="absolute font-mono text-[#00ff41] text-xs"
+          style={{
+            left: `${stream.x}%`,
+            top: `${stream.y}%`,
+          }}
+          animate={{
+            y: [0, 50, 0],
+            opacity: [0.3, 1, 0.3],
+            scale: [0.8, 1.1, 0.8],
+          }}
+          transition={{
+            duration: stream.speed,
+            repeat: Infinity,
+            delay: stream.delay,
+            ease: "easeInOut",
+          }}
+        >
+          <div className="flex flex-col space-y-1">
+            {stream.chars.map((char, index) => (
+              <motion.span
+                key={index}
+                className="block leading-none"
+                style={{
+                  textShadow: '0 0 8px #00ff41, 0 0 12px #00ff41',
+                  filter: `brightness(${1 - (index / stream.length) * 0.6})`
+                }}
+                animate={{
+                  opacity: [0.4, 1, 0.4],
+                  scale: [0.9, 1.1, 0.9],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  delay: index * 0.1 + stream.delay,
+                  ease: "easeInOut",
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  )
+}
+
+// Matrix Background Pulse Effect
+const MatrixBackgroundPulse = () => {
+  return (
+    <div className="absolute inset-0 pointer-events-none">
+      <motion.div
+        className="absolute inset-0 bg-gradient-radial from-[#00ff41]/5 via-transparent to-transparent"
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.1, 0.3, 0.1],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="absolute inset-0 bg-gradient-radial from-cyan-400/5 via-transparent to-transparent"
+        animate={{
+          scale: [1.2, 1, 1.2],
+          opacity: [0.1, 0.2, 0.1],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      />
+    </div>
+  )
+}
+
+// Matrix Scanlines Effect
+const MatrixScanlines = () => {
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <motion.div
+        className="absolute w-full h-0.5 bg-gradient-to-r from-transparent via-[#00ff41]/40 to-transparent"
+        animate={{
+          y: ["-100vh", "100vh"],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{
+          filter: "blur(1px)",
+          boxShadow: "0 0 20px #00ff41, 0 0 40px #00ff41",
+        }}
+      />
+      <motion.div
+        className="absolute w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"
+        animate={{
+          y: ["100vh", "-100vh"],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "linear",
+          delay: 1.5,
+        }}
+        style={{
+          filter: "blur(1px)",
+          boxShadow: "0 0 15px cyan, 0 0 30px cyan",
+        }}
+      />
+    </div>
+  )
+}
+
 export function AIGamingBackground({
   children,
   className,
@@ -380,8 +561,14 @@ export function AIGamingBackground({
       {/* Base dark gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:from-gray-900 dark:via-black dark:to-gray-800" />
       
-      {/* Matrix Rain Effect */}
-      <MatrixRain intensity={30} speed={0.8} />
+      {/* Matrix Background Pulse */}
+      <MatrixBackgroundPulse />
+      
+      {/* Matrix Code Streams */}
+      <MatrixCodeStreams />
+      
+      {/* Matrix Scanlines */}
+      <MatrixScanlines />
       
       {/* Animated background elements */}
       <GlowingOrbs />
