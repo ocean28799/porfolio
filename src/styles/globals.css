@@ -535,3 +535,36 @@ html {
     @apply bg-background text-foreground;
   }
 }
+/* Print styles for CV */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Ensure proper page breaks */
+  .break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Optimize text for print */
+  body {
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  /* Ensure links are visible */
+  a {
+    text-decoration: none;
+  }
+
+  a[href^="http"]:after {
+    content: none;
+  }
+}

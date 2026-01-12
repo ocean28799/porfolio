@@ -181,10 +181,10 @@ export function AdvancedSkillsVisualization() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 dark:from-blue-400 dark:via-purple-500 dark:to-cyan-400 bg-clip-text text-transparent mb-6">
             Technical Expertise
           </h2>
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-600 dark:text-slate-300 max-w-3xl mx-auto mb-8">
             Advanced proficiency across modern technologies with real-world project experience
           </p>
           
@@ -195,7 +195,7 @@ export function AdvancedSkillsVisualization() {
               className={`px-6 py-2 rounded-lg transition-all ${
                 viewMode === "grid"
                   ? "bg-blue-600 text-white"
-                  : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                  : "bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200 dark:border-transparent"
               }`}
             >
               Grid View
@@ -205,7 +205,7 @@ export function AdvancedSkillsVisualization() {
               className={`px-6 py-2 rounded-lg transition-all ${
                 viewMode === "radial"
                   ? "bg-blue-600 text-white"
-                  : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                  : "bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200 dark:border-transparent"
               }`}
             >
               Radial View
@@ -225,7 +225,7 @@ export function AdvancedSkillsVisualization() {
             className={`px-4 py-2 rounded-lg transition-all ${
               selectedCategory === null
                 ? "bg-blue-600 text-white"
-                : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                : "bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200 dark:border-transparent"
             }`}
           >
             All Skills
@@ -237,7 +237,7 @@ export function AdvancedSkillsVisualization() {
               className={`px-4 py-2 rounded-lg transition-all ${
                 selectedCategory === category
                   ? "bg-blue-600 text-white"
-                  : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                  : "bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-200 dark:border-transparent"
               }`}
             >
               {category}
@@ -271,10 +271,10 @@ export function AdvancedSkillsVisualization() {
                 onClick={() => setSelectedSkill(skill)}
                 className="cursor-pointer"
               >
-                <Card className={`p-6 bg-slate-800/50 border-slate-700 hover:border-slate-500 transition-all duration-300 ${
-                  hoveredSkill === skill.name ? "shadow-2xl shadow-blue-500/20 scale-105" : ""
+                <Card className={`p-6 h-full min-h-[400px] flex flex-col bg-white/80 dark:bg-slate-800/50 border-gray-200/50 dark:border-slate-700 hover:border-gray-300/50 dark:hover:border-slate-500 transition-all duration-300 shadow-sm dark:shadow-none ${
+                  hoveredSkill === skill.name ? "shadow-xl dark:shadow-2xl shadow-blue-500/10 dark:shadow-blue-500/20 scale-105" : ""
                 }`}>
-                  <div className="space-y-4">
+                  <div className="space-y-4 flex-1 flex flex-col">
                     {/* Skill Header */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -282,15 +282,15 @@ export function AdvancedSkillsVisualization() {
                           {skill.icon}
                         </div>
                         <div>
-                          <h3 className="font-bold text-white">{skill.name}</h3>
-                          <Badge variant="outline" className="text-xs border-slate-600 text-slate-400">
+                          <h3 className="font-bold text-gray-900 dark:text-white">{skill.name}</h3>
+                          <Badge variant="outline" className="text-xs border-gray-300 dark:border-slate-600 text-gray-600 dark:text-slate-400">
                             {skill.category}
                           </Badge>
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-2xl font-bold text-white">{skill.level}%</div>
-                        <div className="flex items-center gap-1 text-yellow-400">
+                        <div className="text-2xl font-bold text-gray-900 dark:text-white">{skill.level}%</div>
+                        <div className="flex items-center gap-1 text-yellow-500 dark:text-yellow-400">
                           {[...Array(5)].map((_, i) => (
                             <Star
                               key={i}
@@ -306,10 +306,10 @@ export function AdvancedSkillsVisualization() {
                     {/* Progress Bar */}
                     <div className="space-y-2">
                       <div className="flex justify-between text-sm">
-                        <span className="text-slate-400">Proficiency</span>
-                        <span className="text-slate-300">{skill.level}%</span>
+                        <span className="text-gray-600 dark:text-slate-400">Proficiency</span>
+                        <span className="text-gray-700 dark:text-slate-300">{skill.level}%</span>
                       </div>
-                      <div className="w-full bg-slate-700 rounded-full h-2">
+                      <div className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-2">
                         <motion.div
                           className={`h-2 rounded-full bg-gradient-to-r ${skill.color}`}
                           initial={{ width: 0 }}
@@ -325,25 +325,25 @@ export function AdvancedSkillsVisualization() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-sm text-slate-400 leading-relaxed">
+                    <p className="text-sm text-gray-600 dark:text-slate-400 leading-relaxed flex-1">
                       {skill.description}
                     </p>
 
                     {/* Stats */}
-                    <div className="grid grid-cols-2 gap-4 pt-2">
+                    <div className="grid grid-cols-2 gap-4 pt-2 mt-auto">
                       <div className="text-center">
-                        <div className="flex items-center justify-center gap-1 text-green-400 mb-1">
+                        <div className="flex items-center justify-center gap-1 text-green-600 dark:text-green-400 mb-1">
                           <Target className="w-4 h-4" />
                           <span className="font-bold">{skill.projects}</span>
                         </div>
-                        <div className="text-xs text-slate-500">Projects</div>
+                        <div className="text-xs text-gray-500 dark:text-slate-500">Projects</div>
                       </div>
                       <div className="text-center">
-                        <div className="flex items-center justify-center gap-1 text-blue-400 mb-1">
+                        <div className="flex items-center justify-center gap-1 text-blue-600 dark:text-blue-400 mb-1">
                           <Award className="w-4 h-4" />
                           <span className="font-bold">{skill.yearsExperience}+</span>
                         </div>
-                        <div className="text-xs text-slate-500">Years</div>
+                        <div className="text-xs text-gray-500 dark:text-slate-500">Years</div>
                       </div>
                     </div>
                   </div>
@@ -356,12 +356,12 @@ export function AdvancedSkillsVisualization() {
             <div className="relative">
               <canvas
                 ref={canvasRef}
-                className="border border-slate-700 rounded-lg bg-slate-800/30"
+                className="border border-gray-200 dark:border-slate-700 rounded-lg bg-white/50 dark:bg-slate-800/30"
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
-                  <TrendingUp className="w-8 h-8 text-blue-400 mx-auto mb-2" />
-                  <div className="text-sm text-slate-300 font-medium">Skills Radar</div>
+                  <TrendingUp className="w-8 h-8 text-blue-500 dark:text-blue-400 mx-auto mb-2" />
+                  <div className="text-sm text-gray-700 dark:text-slate-300 font-medium">Skills Radar</div>
                 </div>
               </div>
             </div>
@@ -379,7 +379,7 @@ export function AdvancedSkillsVisualization() {
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="bg-slate-800 rounded-2xl border border-slate-700 max-w-md w-full p-6"
+              className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 max-w-md w-full p-6"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="space-y-6">
@@ -389,13 +389,13 @@ export function AdvancedSkillsVisualization() {
                       {selectedSkill.icon}
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white">{selectedSkill.name}</h3>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">{selectedSkill.name}</h3>
                       <Badge className="mt-1">{selectedSkill.category}</Badge>
                     </div>
                   </div>
                   <button
                     onClick={() => setSelectedSkill(null)}
-                    className="text-slate-400 hover:text-white"
+                    className="text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white"
                   >
                     ✕
                   </button>
@@ -403,8 +403,8 @@ export function AdvancedSkillsVisualization() {
 
                 <div className="space-y-4">
                   <div>
-                    <div className="text-3xl font-bold text-white mb-2">{selectedSkill.level}%</div>
-                    <div className="w-full bg-slate-700 rounded-full h-3">
+                    <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{selectedSkill.level}%</div>
+                    <div className="w-full bg-gray-200 dark:bg-slate-700 rounded-full h-3">
                       <div
                         className={`h-3 rounded-full bg-gradient-to-r ${selectedSkill.color}`}
                         style={{ width: `${selectedSkill.level}%` }}
@@ -412,18 +412,18 @@ export function AdvancedSkillsVisualization() {
                     </div>
                   </div>
 
-                  <p className="text-slate-300 leading-relaxed">
+                  <p className="text-gray-700 dark:text-slate-300 leading-relaxed">
                     {selectedSkill.description}
                   </p>
 
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-slate-700/30 rounded-lg">
-                      <div className="text-2xl font-bold text-green-400">{selectedSkill.projects}</div>
-                      <div className="text-sm text-slate-400">Projects Completed</div>
+                    <div className="text-center p-4 bg-gray-100 dark:bg-slate-700/30 rounded-lg">
+                      <div className="text-2xl font-bold text-green-600 dark:text-green-400">{selectedSkill.projects}</div>
+                      <div className="text-sm text-gray-600 dark:text-slate-400">Projects Completed</div>
                     </div>
-                    <div className="text-center p-4 bg-slate-700/30 rounded-lg">
-                      <div className="text-2xl font-bold text-blue-400">{selectedSkill.yearsExperience}+</div>
-                      <div className="text-sm text-slate-400">Years Experience</div>
+                    <div className="text-center p-4 bg-gray-100 dark:bg-slate-700/30 rounded-lg">
+                      <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{selectedSkill.yearsExperience}+</div>
+                      <div className="text-sm text-gray-600 dark:text-slate-400">Years Experience</div>
                     </div>
                   </div>
                 </div>

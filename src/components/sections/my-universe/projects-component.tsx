@@ -18,7 +18,7 @@ export function ProjectsComponent({ colors }: ComponentProps) {
     totalProjects: 7,
     categories: ["AI-Powered Apps", "Enterprise Mobile", "Next.js SaaS", "IoT Systems", "Fintech Solutions"],
     technologies: ["React Native", "Next.js 15", "OpenAI API", "TypeScript", "TensorFlow.js", "WebSocket"],
-    achievements: ["50+ Apps Deployed", "15+ Countries", "AI Integration Expert", "Cross-Platform Specialist"]
+    achievements: ["60+ Apps Deployed", "20+ Countries", "AI Integration Expert", "Cross-Platform Specialist"]
   }
 
   const featuredStats = [

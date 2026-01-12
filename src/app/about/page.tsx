@@ -5,7 +5,7 @@ import { PagePerformanceTracker } from "@/components/performance-reporter"
 export const metadata: Metadata = {
   title: "About | Tran Anh Duc - Senior React Native & AI Integration Specialist",
   description:
-    "Meet Tran Anh Duc - Senior React Native and AI Integration Specialist with 4+ years of proven expertise. Successfully deployed 50+ applications across 15+ countries.",
+    "Meet Tran Anh Duc - Senior React Native and AI Integration Specialist with 5+ years of proven expertise. Successfully deployed 60+ applications across 20+ countries.",
   keywords: [
     "Tran Anh Duc",
     "Senior React Native Developer",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About | Tran Anh Duc - Senior React Native & AI Integration Specialist",
     description:
-      "Senior developer with 4+ years of proven expertise in enterprise-grade mobile and web applications. 50+ apps deployed worldwide.",
+      "Senior developer with 5+ years of proven expertise in enterprise-grade mobile and web applications. 60+ apps deployed worldwide.",
     url: "https://porfolio-eight-henna.vercel.app/about",
     siteName: "Tran Anh Duc",
     type: "website",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About | Tran Anh Duc - Senior React Native & AI Integration Specialist",
     description:
-      "Learn more about Tran Anh Duc - Senior React Native and AI Integration Specialist with 4+ years of experience.",
+      "Learn more about Tran Anh Duc - Senior React Native and AI Integration Specialist with 5+ years of experience.",
   },
   alternates: {
     canonical: "https://porfolio-eight-henna.vercel.app/about",

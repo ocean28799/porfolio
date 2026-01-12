@@ -118,10 +118,10 @@ function generateAIResponse(prompt: string): { content: string; actions?: Array<
     about: {
       name: 'Tran Anh Duc',
       title: 'Senior React Native & AI Integration Specialist',
-      experience: '4+ years',
-      achievements: '50+ enterprise-grade applications across 15+ countries',
-      userImpact: 'Millions of users worldwide',
-      description: 'Senior React Native and AI Integration Specialist with proven expertise in deploying enterprise-grade applications serving millions of users worldwide.'
+      experience: '5+ years',
+      achievements: '60+ enterprise-grade applications across 20+ countries',
+      userImpact: '3M+ users worldwide',
+      description: 'Senior React Native and AI Integration Specialist with proven expertise in deploying enterprise-grade applications serving 3M+ users worldwide.'
     },
     projects: [
       {

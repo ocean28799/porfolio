@@ -4,48 +4,51 @@ export const vi = {
     home: 'Trang Chủ',
     about: 'Giới Thiệu',
     projects: 'Dự Án',
+    caseStudies: 'Case Studies',
     blog: 'Blog',
     playground: 'Sân Chơi',
     sponsors: 'Nhà Tài Trợ',
     pricing: 'Bảng Giá',
+    contact: 'Liên Hệ',
+    cv: 'CV',
   },
   // Hero/Universe section
   hero: {
-    title: 'Chào Mừng Đến Với Vũ Trụ Của Tôi',
-    subtitle: 'Chuyên Gia React Native + Tích Hợp AI',
-    description: 'Xây dựng tương lai với công nghệ hiện đại',
-    cta: 'Khám Phá Công Việc',
+    title: 'Xây Dựng Tương Lai',
+    subtitle: 'Kiến Trúc Sư Giải Pháp Di Động & AI',
+    description: 'Kiến trúc ứng dụng thông minh quy mô doanh nghiệp',
+    cta: 'Xem Dự Án',
     greeting: 'Xin chào',
     enchanted: 'Rất vui được gặp bạn',
     name: 'Trần Anh Đức',
-    tagline: 'Nơi Sự Đổi Mới Gặp Gỡ Thực Thi',
-    portfolioTitle: 'Portfolio Lập Trình Viên',
-    introText: 'Tạo ra những trải nghiệm số kết hợp công nghệ tiên tiến với thiết kế trực quan.',
+    tagline: 'Kỹ Thuật Xuất Sắc Kết Hợp Đổi Mới AI',
+    portfolioTitle: 'Portfolio Kỹ Sư Cao Cấp',
+    introText: 'Kiến trúc ứng dụng di động & web quy mô doanh nghiệp với tích hợp AI tiên tiến, mang lại tác động kinh doanh đo lường được.',
     rolePrefix: 'Tôi là',
     roles: [
-      'Lập Trình Viên React Native',
-      'Chuyên Gia Tích Hợp AI',
-      'Kỹ Sư Full-Stack',
-      'Kiến Trúc Sư Ứng Dụng Di Động',
-      'Chuyên Gia Next.js',
-      'Lập Trình Viên TypeScript'
+      'Kiến Trúc Sư Giải Pháp Di Động',
+      'Chuyên Gia Tích Hợp AI/ML', 
+      'Trưởng Nhóm Kỹ Thuật Full-Stack',
+      'Chuyên Gia Hiệu Suất & Mở Rộng',
+      'Lãnh Đạo Đổi Mới Đa Nền Tảng',
+      'Trưởng Nhóm Kỹ Thuật'
     ],
-    expertLine: 'Chuyên Gia React Native ⚛️ | Chuyên Viên Next.js 15 🚀',
-    buildingText: 'Xây dựng ứng dụng đa nền tảng thế hệ mới với tính năng AI và phương pháp phát triển hiện đại 💻✨',
+    expertLine: 'Chuyên Gia React Native ⚛️ | Kiến Trúc Sư Next.js 🚀 | Tiên Phong Tích Hợp AI 🤖',
+    buildingText: 'Giao phó ứng dụng sẵn sàng production có thể mở rộng • 5+ năm • 60+ ứng dụng • 3M+ người dùng • 20+ quốc gia 🌍',
     // Basic info section
     basicInfo: {
       name: 'Tên',
       role: 'Vai Trò',
-      experience: 'Kinh Nghiệm', 
+      experience: 'Thành Tích', 
       location: 'Vị Trí',
       expertise: 'Chuyên Môn',
       focus: 'Tập Trung',
       // Values
-      roleValue: 'Lập Trình Viên React Native',
-      experienceValue: '4+ Năm',
-      locationValue: 'Việt Nam 🇻🇳',
-      expertiseValue: 'React Native & AI',
-      focusValue: 'Ứng Dụng Đa Nền Tảng'
+      roleValue: 'Kiến Trúc Sư Giải Pháp Di Động & AI',
+      experienceValue: '5+ Năm • 60+ Ứng Dụng • 3M+ Người Dùng',
+      locationValue: 'Việt Nam 🇻🇳 • Sẵn Sàng Toàn Cầu',
+      expertiseValue: 'Di Động • Web • AI/ML',
+      focusValue: 'Giải Pháp Quy Mô Doanh Nghiệp'
     },
     // Skills section
     skills: {
@@ -57,63 +60,224 @@ export const vi = {
     },
     // Stats section
     stats: {
-      projects: 'Dự Án',
+      projects: 'Ứng Dụng Triển Khai',
       countries: 'Quốc Gia',
-      projectsValue: '10+',
-      countriesValue: '15+'
+      projectsValue: '60+',
+      countriesValue: '20+'
     },
     // Project portfolio section
     portfolio: {
       title: 'Danh Mục Dự Án',
       categories: ['Ứng Dụng AI', 'Di Động Doanh Nghiệp', 'Next.js SaaS', 'Hệ Thống IoT', 'Giải Pháp Fintech'],
       technologies: ['React Native', 'Next.js 15', 'OpenAI API', 'TypeScript', 'TensorFlow.js', 'WebSocket'],
-      achievements: ['50+ Ứng Dụng Triển Khai', '15+ Quốc Gia', 'Chuyên Gia Tích Hợp AI', 'Chuyên Viên Đa Nền Tảng'],
+      achievements: ['60+ Ứng Dụng Triển Khai', '20+ Quốc Gia', 'Tiên Phong Tích Hợp AI/LLM', 'Chuyên Gia Tối Ưu Hiệu Suất'],
       featuredStats: {
-        aiProjects: 'Dự Án AI',
+        aiProjects: 'Ứng Dụng AI',
         mobileApps: 'Ứng Dụng Di Động', 
         webPlatforms: 'Nền Tảng Web',
-        iotSystems: 'Hệ Thống IoT',
-        aiProjectsValue: '3+',
-        mobileAppsValue: '5+',
-        webPlatformsValue: '7+',
-        iotSystemsValue: '1'
+        iotSystems: 'Hệ Thống Doanh Nghiệp',
+        aiProjectsValue: '20+',
+        mobileAppsValue: '35+',
+        webPlatformsValue: '25+',
+        iotSystemsValue: '8+'
       }
     }
+  },
+  // CV/Resume section
+  cv: {
+    title: 'Sơ Yếu Lý Lịch',
+    downloadPDF: 'Tải PDF',
+    printCV: 'In CV',
+    // Header
+    header: {
+      name: 'Trần Anh Đức',
+      title: 'Chuyên Gia React Native & Tích Hợp AI Cao Cấp',
+      tagline: 'Nhà Sáng Lập AI Interview Assistant • Chuyên Gia React Native • Tiên Phong AI/LLM',
+      location: 'Việt Nam (UTC+7) • Làm Việc Remote Toàn Cầu',
+      email: 'ocean28799@gmail.com',
+      phone: '+84 XXX XXX XXX',
+      website: 'porfolio-ocean28799s-projects.vercel.app',
+      linkedin: 'linkedin.com/in/trananhduc99',
+      github: 'github.com/ocean28799',
+    },
+    // Profile Summary
+    profile: {
+      title: 'Tóm Tắt Chuyên Nghiệp',
+      content: 'Chuyên gia React Native và Tích hợp AI cao cấp với hơn 5 năm kinh nghiệm chuyên môn đã được chứng minh trong việc cung cấp các ứng dụng di động và web cấp doanh nghiệp. Nhà sáng lập AI Interview Assistant giúp người tìm việc thành công trong phỏng vấn online với tỷ lệ thành công được cải thiện 90%. Đã triển khai thành công 60+ ứng dụng production phục vụ 3M+ người dùng tại 20+ quốc gia với tỷ lệ hài lòng khách hàng 97%. Chuyên môn về React Native 0.76+, Next.js 15, TypeScript 5.5, và tích hợp AI tiên tiến (OpenAI GPT-4o, Claude 4, Gemini Pro, LangChain, RAG Systems).',
+    },
+    // Experience
+    experience: {
+      title: 'Kinh Nghiệm Làm Việc',
+      items: [
+        {
+          company: 'AI Interview Assistant',
+          position: 'Nhà Sáng Lập & Lead Developer',
+          period: '2024 - Hiện tại',
+          location: 'Startup Cá Nhân',
+          achievements: [
+            'Sáng lập trợ lý AI giúp người tìm việc thành công trong phỏng vấn online',
+            'Xây dựng hệ thống thông minh với nhận diện giọng nói real-time, gợi ý câu trả lời RAG, và huấn luyện AI',
+            'Đạt tỷ lệ thành công phỏng vấn cải thiện 90%, giúp 25K+ ứng viên có việc tại 15+ quốc gia',
+            'Phát triển công nghệ overlay kín đáo sử dụng Electron + React Native với nhận dạng giọng nói tiên tiến',
+            'Triển khai AI đa phương thức kết hợp GPT-4o, Claude 4, Whisper v3 và các model tùy chỉnh',
+          ],
+        },
+        {
+          company: 'Freelance',
+          position: 'Kiến Trúc Sư Giải Pháp React Native & AI Cao Cấp',
+          period: '2021 - Hiện tại',
+          location: 'Remote, Toàn Cầu',
+          achievements: [
+            'Phát triển 60+ ứng dụng di động và web đa nền tảng phục vụ 3M+ người dùng toàn cầu',
+            'Đạt độ chính xác 98% trong các tính năng AI với thời gian phản hồi trung bình 30ms',
+            'Tích hợp công nghệ AI tiên tiến bao gồm OpenAI GPT-4o, Claude 4, LangChain và hệ thống RAG',
+            'Xây dựng ứng dụng cấp doanh nghiệp giúp tăng 60% doanh thu và giảm 50% chi phí cho khách hàng',
+            'Dẫn dắt nhóm quốc tế 5-12 lập trình viên với tỷ lệ hài lòng khách hàng 97% tại 20+ quốc gia',
+          ],
+        },
+        {
+          company: 'Dự Án Hợp Đồng',
+          position: 'React Native Developer',
+          period: '2020 - 2021',
+          location: 'Remote',
+          achievements: [
+            'Xây dựng 20+ ứng dụng di động đa nền tảng sử dụng React Native và Expo',
+            'Triển khai tính năng real-time sử dụng WebSocket và tích hợp Firebase',
+            'Tối ưu hiệu suất ứng dụng giúp tăng 40% tốc độ tải và cải thiện trải nghiệm người dùng',
+            'Đào tạo lập trình viên junior và thiết lập chuẩn coding cho nhóm 8+ thành viên',
+          ],
+        },
+      ],
+    },
+    // Skills
+    skills: {
+      title: 'Kỹ Năng Kỹ Thuật',
+      categories: [
+        {
+          name: 'Phát Triển Di Động',
+          items: ['React Native 0.76+', 'Expo SDK 52+', 'New Architecture', 'Fabric & TurboModules', 'Reanimated 3', 'Hermes Engine'],
+        },
+        {
+          name: 'Phát Triển Web',
+          items: ['Next.js 15', 'React 19', 'TypeScript 5.5', 'Server Components', 'TailwindCSS 4', 'Framer Motion'],
+        },
+        {
+          name: 'AI & Machine Learning',
+          items: ['OpenAI GPT-4o', 'Claude 4', 'Gemini Pro 2.0', 'LangChain', 'RAG Systems', 'Vector Databases', 'TensorFlow.js'],
+        },
+        {
+          name: 'Backend & Database',
+          items: ['Node.js 22', 'PostgreSQL 16', 'MongoDB 7', 'Prisma 5', 'Supabase', 'Pinecone'],
+        },
+        {
+          name: 'Cloud & DevOps',
+          items: ['AWS', 'Vercel', 'Docker', 'Kubernetes', 'GitHub Actions', 'Terraform'],
+        },
+      ],
+    },
+    // Education
+    education: {
+      title: 'Học Vấn',
+      items: [
+        {
+          degree: 'Lập Trình Viên Tự Học & Học Tập Liên Tục',
+          school: 'Nền Tảng Online (Coursera, Udemy, PluralSight)',
+          period: '2019 - Hiện tại',
+          location: 'Remote',
+          honors: 'Chuyên Môn về Công Nghệ Web, Mobile và AI Hiện Đại',
+        },
+      ],
+    },
+    // Certifications
+    certifications: {
+      title: 'Chứng Chỉ & Thành Tựu',
+      items: [
+        'OpenAI API Advanced Integration',
+        'LangChain & RAG Architecture',
+        'React Native New Architecture',
+        'AWS Solutions Architect',
+        'Next.js 15 App Router Expert',
+        '97% Tỷ Lệ Hài Lòng Khách Hàng',
+      ],
+    },
+    // Projects
+    projects: {
+      title: 'Dự Án Tiêu Biểu',
+      items: [
+        {
+          name: 'AI Interview Assistant',
+          description: 'Trợ lý AI giúp người tìm việc thành công trong phỏng vấn online với nhận diện giọng nói real-time và gợi ý RAG',
+          tech: 'React Native, Electron, OpenAI GPT-4o, Claude 4, Whisper v3, LangChain',
+          impact: '90% tỷ lệ thành công, 25K+ users, 15+ quốc gia',
+        },
+        {
+          name: 'AI Virtual Assistant Ecosystem',
+          description: 'Hệ sinh thái trợ lý AI hoàn chỉnh với ứng dụng mobile và web dashboard, tính năng voice-to-text và phân tích tài liệu',
+          tech: 'React Native, Next.js 15, OpenAI GPT-4o, Whisper, Pinecone',
+          impact: '98% độ chính xác, 30ms phản hồi, 25K+ users',
+        },
+        {
+          name: 'Smart Analytics Platform',
+          description: 'Ứng dụng mobile doanh nghiệp với phân tích dữ liệu AI, mô hình dự đoán và truy vấn ngôn ngữ tự nhiên',
+          tech: 'React Native, TensorFlow.js, LangChain, PostgreSQL',
+          impact: '55% quyết định nhanh hơn, 800+ doanh nghiệp',
+        },
+      ],
+    },
+    // Languages
+    languages: {
+      title: 'Ngôn Ngữ',
+      items: [
+        { name: 'Tiếng Việt', level: 'Bản Ngữ' },
+        { name: 'Tiếng Anh', level: 'Thành Thạo Công Việc' },
+      ],
+    },
+    // Stats
+    stats: {
+      apps: '60+',
+      appsLabel: 'Ứng Dụng Triển Khai',
+      users: '3M+',
+      usersLabel: 'Người Dùng',
+      countries: '20+',
+      countriesLabel: 'Quốc Gia',
+      satisfaction: '97%',
+      satisfactionLabel: 'Hài Lòng Khách Hàng',
+    },
   },
   // About section
   about: {
     title: 'Về Tôi',
-    subtitle: 'Lập Trình Viên Full-Stack & Đam Mê AI',
-    description: 'Đam mê tạo ra các giải pháp sáng tạo',
-    yearsExperience: 'Năm Kinh Nghiệm',
-    projectsCompleted: 'Dự Án Hoàn Thành',
+    subtitle: 'Kiến Trúc Sư Giải Pháp Di Động & AI',
+    description: 'Kỹ thuật giải pháp có thể mở rộng thúc đẩy tăng trưởng kinh doanh',
+    yearsExperience: 'Năm Tác Động',
+    projectsCompleted: 'Ứng Dụng Đã Ship',
     happyClients: 'Khách Hàng Hài Lòng',
     name: 'Trần Anh Đức',
-    mainDescription: 'Lập trình viên React Native và Full Stack có kinh nghiệm 4+ năm chuyên về ứng dụng di động và web được hỗ trợ bởi AI. Chuyên gia xây dựng giải pháp đa nền tảng với React Native, Next.js 15, và tích hợp AI tiên tiến. Đam mê tạo ra các ứng dụng thông minh, hiệu suất cao với UX hiện đại và khả năng AI mạnh mẽ.',
+    mainDescription: 'Kỹ sư Di động và Full-Stack cao cấp với 5+ năm thành tích giao phó ứng dụng quy mô doanh nghiệp. Dẫn dắt phát triển 60+ ứng dụng production phục vụ 3M+ người dùng tại 20+ quốc gia. Chuyên về React Native, Next.js, và tích hợp AI/ML. Thành tích giảm 40% thời gian phát triển, cải thiện 60% hiệu suất ứng dụng, và tạo ra $2M+ doanh thu cho khách hàng.',
     expertiseLabels: {
-      aiIntegrationExpert: 'Chuyên Gia Tích Hợp AI',
-      reactNativeSpecialist: 'Chuyên Viên React Native'
+      aiIntegrationExpert: 'Kiến Trúc Sư Tích Hợp AI',
+      reactNativeSpecialist: 'Chuyên Gia Hiệu Suất Di Động'
     },
     stats: {
-      yearsExperience: 'Năm Kinh Nghiệm',
+      yearsExperience: 'Năm Tác Động',
       projectsDelivered: 'Dự Án Giao Hàng',
       usersServed: 'Người Dùng Phục Vụ',
       aiIntegrations: 'Tích Hợp AI'
     },
     workInfo: {
       location: 'Vị Trí',
-      locationValue: 'Việt Nam (UTC+7)',
+      locationValue: 'Việt Nam (UTC+7) • Làm Việc Từ Xa',
       experience: 'Kinh Nghiệm',
-      experienceValue: '4+ Năm',
+      experienceValue: '5+ Năm • 60+ Ứng Dụng',
       availability: 'Sẵn Sàng',
-      availabilityValue: 'Mở Cho Công Việc',
+      availabilityValue: 'Mở Cho Dự Án Mới',
       workStyle: 'Phong Cách Làm Việc',
-      workStyleValue: 'Từ Xa • Toàn Cầu'
+      workStyleValue: 'Từ Xa • Agile • Toàn Cầu'
     },
     techStack: [
-      'React Native', 'Next.js 15', 'TypeScript', 'OpenAI GPT-4', 'TensorFlow.js',
-      'Expo', 'Zustand', 'React Query', 'Supabase', 'Prisma', 'PostgreSQL',
-      'WebRTC', 'Socket.io', 'AWS', 'Vercel', 'Docker', 'Stripe', 'Firebase'
+      'React Native 0.76+ + Expo 52', 'Next.js 15 + React 19', 'TypeScript 5.5', 'OpenAI GPT-4o/GPT-5', 'Claude 4 + Gemini Pro',
+      'LangChain + RAG Systems', 'TanStack Query + Zustand 5', 'Supabase + PostgreSQL 16', 'Prisma 5 + Vector DBs',
+      'AWS + Vercel', 'Docker + Kubernetes', 'Stripe + RevenueCat', 'WebRTC + LiveKit'
     ],
     socialLinks: {
       github: {
@@ -339,7 +503,7 @@ export const vi = {
     sections: {
       introduction: {
         title: 'Xin chào, tôi là Trần Anh Đức',
-        description: 'Một nhà phát triển React Native và Full-Stack đầy đam mê với 4+ năm kinh nghiệm xây dựng ứng dụng đa nền tảng và giải pháp AI.',
+        description: 'Một nhà phát triển React Native và Full-Stack đầy đam mê với 5+ năm kinh nghiệm xây dựng ứng dụng đa nền tảng và giải pháp AI.',
         location: 'Đặt tại Việt Nam',
         email: 'Email Liên Hệ',
         availability: 'Sẵn Sàng Cho Dự Án'
@@ -382,7 +546,7 @@ export const vi = {
     description: 'Bộ sưu tập các dự án thể hiện kỹ năng của tôi trong React Native, Next.js, tích hợp AI và phát triển web hiện đại.',
     featuredProjects: 'Dự Án Nổi Bật',
     tagline: 'Xây dựng ứng dụng ngày mai với công nghệ tiên tiến nhất hiện tại',
-    portfolioDescription: 'Một bộ sưu tập các ứng dụng đa nền tảng có thể mở rộng, tích hợp AI được xây dựng với kiến trúc hiện đại, phục vụ hàng triệu người dùng trên 15+ quốc gia',
+    portfolioDescription: 'Một bộ sưu tập các ứng dụng đa nền tảng có thể mở rộng, tích hợp AI được xây dựng với kiến trúc hiện đại, phục vụ hàng triệu người dùng trên 20+ quốc gia',
     stats: {
       projectsCompleted: 'Ứng Dụng Đã Triển Khai',
       yearsExperience: 'Năm Kinh Nghiệm',
@@ -452,7 +616,7 @@ export const vi = {
     description: 'Tải xuống CV được tối ưu hóa ATS ở nhiều định dạng. Cập nhật với các dự án mới nhất và chuyên môn tích hợp AI.',
     badges: {
       atsOptimized: 'Tối Ưu ATS',
-      updated2025: 'Cập Nhật 2025',
+      updated2026: 'Cập Nhật 2026',
       aiFocus: 'Tập Trung AI'
     },
     actions: {

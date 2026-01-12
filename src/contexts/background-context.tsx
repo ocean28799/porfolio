@@ -48,7 +48,7 @@ const isMobileDevice = () => {
 }
 
 export function BackgroundProvider({ children }: { children: ReactNode }) {
-  const [backgroundType, setBackgroundType] = useState<BackgroundType>('matrix')
+  const [backgroundType, setBackgroundType] = useState<BackgroundType>('basic')
   const [isMobile, setIsMobile] = useState(false)
   const [isReducedMotion, setIsReducedMotion] = useState(false)
   const [userHasManuallySet, setUserHasManuallySet] = useState(false)
@@ -70,7 +70,7 @@ export function BackgroundProvider({ children }: { children: ReactNode }) {
     
     // Only set default background type if user hasn't manually set it
     if (!userHasManuallySet) {
-      const defaultType = mobile || reducedMotion ? 'basic' : 'matrix'
+      const defaultType = 'basic' // Always use 'basic' as default for all devices
       setBackgroundType(defaultType)
     }
     

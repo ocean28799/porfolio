@@ -13,7 +13,6 @@ import { Globe } from 'lucide-react';
 const languages = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
-  { code: 'ja', name: '日本語', flag: '🇯🇵' },
 ];
 
 export function LanguageSwitcher() {

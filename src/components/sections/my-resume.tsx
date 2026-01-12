@@ -11,15 +11,15 @@ export function MyResume() {
   
   const handleDownloadTXT = () => {
     const link = document.createElement('a')
-    link.href = '/files/TranAnhDuc-Comprehensive-CV-2025.txt'
-    link.download = 'TranAnhDuc-Comprehensive-CV-2025.txt'
+    link.href = '/files/TranAnhDuc-Comprehensive-CV-2026.txt'
+    link.download = 'TranAnhDuc-Comprehensive-CV-2026.txt'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
   }
 
   const handleViewHTML = () => {
-    window.open('/files/TranAnhDuc-Modern-CV-2025.html', '_blank')
+    window.open('/files/TranAnhDuc-Modern-CV-2026.html', '_blank')
   }
 
   const handleDownloadPDF = () => {
@@ -36,20 +36,20 @@ export function MyResume() {
       <CardContent className="p-6 h-full flex flex-col justify-between">
         {/* Header */}
         <div className="text-center space-y-3 mb-6">
-          <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+          <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-cyan-500 dark:from-purple-400 dark:to-cyan-400 bg-clip-text text-transparent">
             {t('resume.title')}
           </h3>
-          <p className="text-sm text-gray-300">
+          <p className="text-sm text-gray-600 dark:text-gray-300">
             {t('resume.description')}
           </p>
           <div className="flex flex-wrap justify-center gap-1">
-            <Badge className="bg-green-500/20 text-green-300 border-green-500/30 text-xs">
+            <Badge className="bg-green-500/20 text-green-700 dark:text-green-300 border-green-500/30 text-xs">
               {t('resume.badges.atsOptimized')}
             </Badge>
-            <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30 text-xs">
-              {t('resume.badges.updated2025')}
+            <Badge className="bg-blue-500/20 text-blue-700 dark:text-blue-300 border-blue-500/30 text-xs">
+              {t('resume.badges.updated2026')}
             </Badge>
-            <Badge className="bg-purple-500/20 text-purple-300 border-purple-500/30 text-xs">
+            <Badge className="bg-purple-500/20 text-purple-700 dark:text-purple-300 border-purple-500/30 text-xs">
               {t('resume.badges.aiFocus')}
             </Badge>
           </div>
@@ -62,11 +62,11 @@ export function MyResume() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center">
-                  <FileText className="w-4 h-4 text-red-400" />
+                  <FileText className="w-4 h-4 text-red-500 dark:text-red-400" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-red-400">{t('resume.versions.pdfVersion')}</div>
-                  <div className="text-xs text-gray-400">{t('resume.descriptions.professionalFormat')}</div>
+                  <div className="text-sm font-medium text-red-600 dark:text-red-400">{t('resume.versions.pdfVersion')}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">{t('resume.descriptions.professionalFormat')}</div>
                 </div>
               </div>
               <Button 
@@ -85,11 +85,11 @@ export function MyResume() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center">
-                  <Eye className="w-4 h-4 text-blue-400" />
+                  <Eye className="w-4 h-4 text-blue-500 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-blue-400">{t('resume.versions.htmlVersion')}</div>
-                  <div className="text-xs text-gray-400">{t('resume.descriptions.interactiveWebVersion')}</div>
+                  <div className="text-sm font-medium text-blue-600 dark:text-blue-400">{t('resume.versions.htmlVersion')}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">{t('resume.descriptions.interactiveWebVersion')}</div>
                 </div>
               </div>
               <Button 
@@ -108,11 +108,11 @@ export function MyResume() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
-                  <FileText className="w-4 h-4 text-green-400" />
+                  <FileText className="w-4 h-4 text-green-500 dark:text-green-400" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-green-400">{t('resume.versions.atsText')}</div>
-                  <div className="text-xs text-gray-400">{t('resume.descriptions.atsOptimized')}</div>
+                  <div className="text-sm font-medium text-green-600 dark:text-green-400">{t('resume.versions.atsText')}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">{t('resume.descriptions.atsOptimized')}</div>
                 </div>
               </div>
               <Button 
@@ -130,7 +130,7 @@ export function MyResume() {
         {/* Enhanced Stats Section */}
         <div className="space-y-4">
           <div className="text-center">
-            <h4 className="text-sm font-semibold text-gray-300 mb-3">{t('resume.metrics.title')}</h4>
+            <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-300 mb-3">{t('resume.metrics.title')}</h4>
           </div>
           
           <div className="grid grid-cols-2 gap-3">
@@ -138,10 +138,10 @@ export function MyResume() {
             <div className="relative group">
               <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/10 border border-purple-500/30 rounded-xl p-3 hover:border-purple-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
                 <div className="text-center space-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-purple-500 to-purple-400 dark:from-purple-400 dark:to-purple-300 bg-clip-text text-transparent">
                     4+
                   </div>
-                  <div className="text-xs text-gray-400 font-medium">{t('resume.metrics.yearsExp')}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">{t('resume.metrics.yearsExp')}</div>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
@@ -151,10 +151,10 @@ export function MyResume() {
             <div className="relative group">
               <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 border border-cyan-500/30 rounded-xl p-3 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
                 <div className="text-center space-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-cyan-500 to-cyan-400 dark:from-cyan-400 dark:to-cyan-300 bg-clip-text text-transparent">
                     50+
                   </div>
-                  <div className="text-xs text-gray-400 font-medium">{t('resume.metrics.projects')}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">{t('resume.metrics.projects')}</div>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
@@ -164,10 +164,10 @@ export function MyResume() {
             <div className="relative group">
               <div className="bg-gradient-to-br from-green-500/20 to-green-600/10 border border-green-500/30 rounded-xl p-3 hover:border-green-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20">
                 <div className="text-center space-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-transparent">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-green-500 to-green-400 dark:from-green-400 dark:to-green-300 bg-clip-text text-transparent">
                     2M+
                   </div>
-                  <div className="text-xs text-gray-400 font-medium">{t('resume.metrics.users')}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">{t('resume.metrics.users')}</div>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
@@ -177,10 +177,10 @@ export function MyResume() {
             <div className="relative group">
               <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/30 rounded-xl p-3 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
                 <div className="text-center space-y-1">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">
+                  <div className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-blue-400 dark:from-blue-400 dark:to-blue-300 bg-clip-text text-transparent">
                     8+
                   </div>
-                  <div className="text-xs text-gray-400 font-medium">{t('resume.metrics.aiApps')}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">{t('resume.metrics.aiApps')}</div>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
@@ -190,13 +190,13 @@ export function MyResume() {
           {/* Achievement Badges */}
           <div className="flex flex-wrap justify-center gap-1 pt-2">
             <div className="bg-gradient-to-r from-emerald-500/20 to-emerald-600/10 border border-emerald-500/30 rounded-full px-2 py-1">
-              <span className="text-xs text-emerald-300 font-medium">{t('resume.tags.expert')}</span>
+              <span className="text-xs text-emerald-700 dark:text-emerald-300 font-medium">{t('resume.tags.expert')}</span>
             </div>
             <div className="bg-gradient-to-r from-orange-500/20 to-orange-600/10 border border-orange-500/30 rounded-full px-2 py-1">
-              <span className="text-xs text-orange-300 font-medium">{t('resume.tags.aiFocus')}</span>
+              <span className="text-xs text-orange-700 dark:text-orange-300 font-medium">{t('resume.tags.aiFocus')}</span>
             </div>
             <div className="bg-gradient-to-r from-pink-500/20 to-pink-600/10 border border-pink-500/30 rounded-full px-2 py-1">
-              <span className="text-xs text-pink-300 font-medium">{t('resume.tags.global')}</span>
+              <span className="text-xs text-pink-700 dark:text-pink-300 font-medium">{t('resume.tags.global')}</span>
             </div>
           </div>
         </div>

@@ -24,7 +24,7 @@ export function ConnectCard() {
       name: "GitHub",
       icon: Github,
       href: "https://github.com/ocean28799",
-      description: "50+ projects & contributions",
+      description: "60+ projects & contributions",
       color: "#333333",
       bgColor: "from-gray-900/60 to-gray-800/60",
       hoverColor: "hover:from-gray-800/70 hover:to-gray-700/70",
@@ -61,10 +61,10 @@ export function ConnectCard() {
   ];
 
   return (
-    <Card className="h-full overflow-hidden relative group w-full max-w-sm mx-auto">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-xl" />
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-cyan-500/10 to-pink-500/20 opacity-70" />
+    <Card className="h-full overflow-hidden relative group w-full max-w-sm mx-auto bg-white/90 dark:bg-transparent border-gray-200/50 dark:border-transparent">
+      {/* Background Effects - Dark mode only */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/95 via-gray-100/95 to-gray-50/95 dark:from-slate-900/95 dark:via-slate-800/95 dark:to-slate-900/95 backdrop-blur-xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-cyan-500/5 to-pink-500/10 dark:from-purple-500/20 dark:via-cyan-500/10 dark:to-pink-500/20 opacity-70" />
 
       {/* Animated Border */}
       <div className="absolute inset-0 rounded-xl">
@@ -82,13 +82,13 @@ export function ConnectCard() {
           repeat: Infinity,
           ease: "linear",
         }}
-        className="absolute top-6 right-6 text-cyan-400/60 z-10"
+        className="absolute top-6 right-6 text-cyan-500/60 dark:text-cyan-400/60 z-10"
       >
         <Globe className="w-6 h-6" />
       </motion.div>
 
       {/* Premium Glass Effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] via-transparent to-white/[0.02] backdrop-blur-xl rounded-xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.1] dark:from-white/[0.05] via-transparent to-white/[0.05] dark:to-white/[0.02] backdrop-blur-xl rounded-xl" />
 
       <CardHeader className="relative z-20 pb-6 pt-8">
         <motion.div
@@ -111,10 +111,10 @@ export function ConnectCard() {
               <MessageSquare className="w-6 h-6 text-purple-400" />
             </motion.div>
           </div>
-          <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-400 bg-clip-text text-transparent">
+          <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500 dark:from-purple-400 dark:via-cyan-400 dark:to-pink-400 bg-clip-text text-transparent">
             Connect
           </h3>
-          <p className="text-sm text-slate-300 font-medium">
+          <p className="text-sm text-gray-600 dark:text-slate-300 font-medium">
             Ready to start your next project?
           </p>
           <div className="w-16 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 mx-auto rounded-full" />
@@ -137,7 +137,7 @@ export function ConnectCard() {
             >
               <Button
                 variant="ghost"
-                className={`w-full h-auto p-4 justify-start text-left bg-gradient-to-r ${connection.bgColor} ${connection.hoverColor} border border-slate-700/50 hover:border-slate-500/70 transition-all duration-300 group-hover/item:shadow-xl group-hover/item:shadow-purple-500/25 backdrop-blur-sm rounded-lg`}
+                className={`w-full h-auto p-4 justify-start text-left bg-gradient-to-r ${connection.bgColor} ${connection.hoverColor} border border-gray-300/50 dark:border-slate-700/50 hover:border-gray-400/70 dark:hover:border-slate-500/70 transition-all duration-300 group-hover/item:shadow-xl group-hover/item:shadow-purple-500/25 backdrop-blur-sm rounded-lg`}
                 onClick={() => window.open(connection.href, "_blank")}
               >
                 <div className="flex items-center gap-3 w-full min-w-0">
@@ -170,13 +170,13 @@ export function ConnectCard() {
                         {connection.name}
                       </h4>
                       <motion.div
-                        className="text-slate-400 group-hover/item:text-slate-200 transition-colors flex-shrink-0"
+                        className="text-gray-500 dark:text-slate-400 group-hover/item:text-gray-700 dark:group-hover/item:text-slate-200 transition-colors flex-shrink-0"
                         whileHover={{ x: 4, scale: 1.2 }}
                       >
                         <ExternalLink className="w-4 h-4" />
                       </motion.div>
                     </div>
-                    <p className="text-xs text-slate-400 group-hover/item:text-slate-300 transition-colors leading-relaxed font-medium break-words">
+                    <p className="text-xs text-gray-500 dark:text-slate-400 group-hover/item:text-gray-600 dark:group-hover/item:text-slate-300 transition-colors leading-relaxed font-medium break-words">
                       {connection.description}
                     </p>
                   </div>
@@ -191,11 +191,11 @@ export function ConnectCard() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.9 }}
-          className="pt-6 border-t border-slate-700/50"
+          className="pt-6 border-t border-gray-200/50 dark:border-slate-700/50"
         >
           <div className="flex items-center justify-center gap-3">
             <motion.div
-              className="w-3 h-3 bg-green-400 rounded-full"
+              className="w-3 h-3 bg-green-500 dark:bg-green-400 rounded-full"
               animate={{
                 scale: [1, 1.3, 1],
                 boxShadow: [
@@ -208,7 +208,7 @@ export function ConnectCard() {
             />
             <Badge
               variant="secondary"
-              className="bg-green-400/15 text-green-300 border-green-400/30 hover:bg-green-400/25 transition-all duration-300 font-semibold px-4 py-2 text-sm"
+              className="bg-green-500/15 dark:bg-green-400/15 text-green-700 dark:text-green-300 border-green-500/30 dark:border-green-400/30 hover:bg-green-500/25 dark:hover:bg-green-400/25 transition-all duration-300 font-semibold px-4 py-2 text-sm"
             >
               Available for projects
             </Badge>

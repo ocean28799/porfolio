@@ -4,10 +4,13 @@ export const ja = {
     home: 'ホーム',
     about: '私について',
     projects: 'プロジェクト',
+    caseStudies: '事例紹介',
     blog: 'ブログ',
     playground: 'プレイグラウンド',
     sponsors: 'スポンサー',
     pricing: '料金',
+    contact: 'お問い合わせ',
+    cv: '履歴書',
   },
   // Hero/Universe section
   hero: {
@@ -30,8 +33,8 @@ export const ja = {
       'Next.jsエキスパート',
       'TypeScript開発者'
     ],
-    expertLine: 'React Nativeエキスパート ⚛️ | Next.js 15スペシャリスト 🚀',
-    buildingText: 'AI搭載機能と最新開発手法による次世代クロスプラットフォームアプリケーションの構築 💻✨',
+    expertLine: 'React Native 0.76+ エキスパート ⚛️ | Next.js 15スペシャリスト 🚀 | AI/LLM統合リーダー 🤖',
+    buildingText: 'インテリジェントAI機能を備えた本番環境対応のスケーラブルアプリケーションを構築 • 5年以上の経験・60以上のアプリ・20カ国以上で展開 🌍',
     // Basic info section
     basicInfo: {
       name: '名前',
@@ -41,11 +44,11 @@ export const ja = {
       expertise: '専門分野',
       focus: '専門領域',
       // Values
-      roleValue: 'React Native開発者',
-      experienceValue: '4年以上',
-      locationValue: 'ベトナム 🇻🇳',
-      expertiseValue: 'React Native & AI',
-      focusValue: 'クロスプラットフォームアプリ'
+      roleValue: 'シニアReact Native開発者',
+      experienceValue: '5年以上 • 60以上のアプリ',
+      locationValue: 'ベトナム 🇻🇳 • リモートワーク',
+      expertiseValue: 'React Native • Next.js • AI/LLM',
+      focusValue: 'エンタープライズアプリ'
     },
     // Skills section
     skills: {
@@ -57,39 +60,201 @@ export const ja = {
     },
     // Stats section
     stats: {
-      projects: 'プロジェクト',
+      projects: 'アプリ展開数',
       countries: '国',
-      projectsValue: '10+',
-      countriesValue: '15+'
+      projectsValue: '60+',
+      countriesValue: '20+'
     },
     // Project portfolio section
     portfolio: {
       title: 'プロジェクトポートフォリオ',
       categories: ['AI搭載アプリ', 'エンタープライズモバイル', 'Next.js SaaS', 'IoTシステム', 'フィンテックソリューション'],
       technologies: ['React Native', 'Next.js 15', 'OpenAI API', 'TypeScript', 'TensorFlow.js', 'WebSocket'],
-      achievements: ['50+アプリ展開', '15+カ国', 'AI統合エキスパート', 'クロスプラットフォーム専門家'],
+      achievements: ['60+アプリ展開', '20+カ国', 'AI/LLM統合パイオニア', 'パフォーマンス最適化エキスパート'],
       featuredStats: {
-        aiProjects: 'AIプロジェクト',
+        aiProjects: 'AIアプリ',
         mobileApps: 'モバイルアプリ', 
         webPlatforms: 'Webプラットフォーム',
-        iotSystems: 'IoTシステム',
-        aiProjectsValue: '3+',
-        mobileAppsValue: '5+',
-        webPlatformsValue: '7+',
-        iotSystemsValue: '1'
+        iotSystems: 'エンタープライズシステム',
+        aiProjectsValue: '20+',
+        mobileAppsValue: '35+',
+        webPlatformsValue: '25+',
+        iotSystemsValue: '8+'
       }
     }
+  },
+  // CV/Resume section
+  cv: {
+    title: '履歴書',
+    downloadPDF: 'PDFダウンロード',
+    printCV: 'CV印刷',
+    // Header
+    header: {
+      name: 'トラン・アン・ドゥック',
+      title: 'シニアReact Native & AI統合スペシャリスト',
+      tagline: 'AI Interview Assistant創設者 • React Nativeエキスパート • AI/LLMパイオニア',
+      location: 'ベトナム (UTC+7) • グローバルリモートワーク',
+      email: 'ocean28799@gmail.com',
+      phone: '+84 XXX XXX XXX',
+      website: 'porfolio-ocean28799s-projects.vercel.app',
+      linkedin: 'linkedin.com/in/trananhduc99',
+      github: 'github.com/ocean28799',
+    },
+    // Profile Summary
+    profile: {
+      title: '職務概要',
+      content: 'エンタープライズグレードのモバイル・Webアプリケーション提供における5年以上の実証された専門知識を持つシニアReact Native & AI統合スペシャリスト。オンライン面接で求職者の成功を支援するAI Interview Assistantの創設者であり、90%の面接成功率向上を実現。20カ国以上で300万人以上のユーザーにサービスを提供する60以上の本番アプリケーションを成功裏に展開し、顧客満足度97%を達成。React Native 0.76+、Next.js 15、TypeScript 5.5、先進的AI統合（OpenAI GPT-4o、Claude 4、Gemini Pro、LangChain、RAG Systems）を専門としています。',
+    },
+    // Experience
+    experience: {
+      title: '職務経歴',
+      items: [
+        {
+          company: 'AI Interview Assistant',
+          position: '創設者 & リードデベロッパー',
+          period: '2024年 - 現在',
+          location: '個人スタートアップ',
+          achievements: [
+            'オンライン面接で求職者の成功を支援するAIアシスタントを創設',
+            'リアルタイム音声認識、RAG駆動回答提案、AIコーチングを備えたインテリジェントシステムを構築',
+            '面接成功率90%向上を達成し、15カ国以上の25K+候補者を支援',
+            '高度な音声認識機能を備えたElectron + React Nativeによるステルスオーバーレイ技術を開発',
+            'GPT-4o、Claude 4、Whisper v3、カスタムモデルを組み合わせたマルチモーダルAIを実装',
+          ],
+        },
+        {
+          company: 'フリーランス',
+          position: 'シニアReact Native & AIソリューションアーキテクト',
+          period: '2021年 - 現在',
+          location: 'リモート、グローバル',
+          achievements: [
+            'グローバルで300万人以上のユーザーにサービスを提供する60以上のクロスプラットフォームモバイル・Webアプリを開発',
+            'AI機能で98%の精度を達成、平均応答時間30ms',
+            'OpenAI GPT-4o、Claude 4、LangChain、RAGシステムを含む先進AI技術を統合',
+            'クライアントの収益60%増加、コスト50%削減を実現するエンタープライズアプリを構築',
+            '20カ国以上で顧客満足度97%を達成する5-12名の国際開発チームを主導',
+          ],
+        },
+        {
+          company: 'コントラクトプロジェクト',
+          position: 'React Native開発者',
+          period: '2020年 - 2021年',
+          location: 'リモート',
+          achievements: [
+            'React NativeとExpoを使用して20以上のクロスプラットフォームモバイルアプリを構築',
+            'WebSocketとFirebase統合を使用したリアルタイム機能を実装',
+            'アプリパフォーマンス最適化により読み込み速度40%向上、ユーザー体験を改善',
+            'ジュニア開発者を育成し、8名以上のチームのコーディング標準を確立',
+          ],
+        },
+      ],
+    },
+    // Skills
+    skills: {
+      title: '技術スキル',
+      categories: [
+        {
+          name: 'モバイル開発',
+          items: ['React Native 0.76+', 'Expo SDK 52+', 'New Architecture', 'Fabric & TurboModules', 'Reanimated 3', 'Hermes Engine'],
+        },
+        {
+          name: 'Web開発',
+          items: ['Next.js 15', 'React 19', 'TypeScript 5.5', 'Server Components', 'TailwindCSS 4', 'Framer Motion'],
+        },
+        {
+          name: 'AI & 機械学習',
+          items: ['OpenAI GPT-4o', 'Claude 4', 'Gemini Pro 2.0', 'LangChain', 'RAG Systems', 'Vector Databases', 'TensorFlow.js'],
+        },
+        {
+          name: 'バックエンド & データベース',
+          items: ['Node.js 22', 'PostgreSQL 16', 'MongoDB 7', 'Prisma 5', 'Supabase', 'Pinecone'],
+        },
+        {
+          name: 'クラウド & DevOps',
+          items: ['AWS', 'Vercel', 'Docker', 'Kubernetes', 'GitHub Actions', 'Terraform'],
+        },
+      ],
+    },
+    // Education
+    education: {
+      title: '学歴',
+      items: [
+        {
+          degree: '独学開発者 & 継続学習者',
+          school: 'オンラインプラットフォーム（Coursera、Udemy、PluralSight）',
+          period: '2019年 - 現在',
+          location: 'リモート',
+          honors: '現代Web、モバイル、AI技術の専門化',
+        },
+      ],
+    },
+    // Certifications
+    certifications: {
+      title: '資格・実績',
+      items: [
+        'OpenAI API高度統合',
+        'LangChain & RAGアーキテクチャ',
+        'React Native New Architecture',
+        'AWSソリューションアーキテクト',
+        'Next.js 15 App Routerエキスパート',
+        '顧客満足度97%達成',
+      ],
+    },
+    // Projects
+    projects: {
+      title: '主要プロジェクト',
+      items: [
+        {
+          name: 'AI Interview Assistant',
+          description: 'リアルタイム音声認識とRAG駆動提案でオンライン面接の成功を支援するAIアシスタント',
+          tech: 'React Native, Electron, OpenAI GPT-4o, Claude 4, Whisper v3, LangChain',
+          impact: '成功率90%、25K+ユーザー、15+カ国',
+        },
+        {
+          name: 'AI Virtual Assistantエコシステム',
+          description: 'モバイルアプリとWebダッシュボード、音声認識、ドキュメント分析を備えた包括的AIアシスタントエコシステム',
+          tech: 'React Native, Next.js 15, OpenAI GPT-4o, Whisper, Pinecone',
+          impact: '精度98%、応答30ms、25K+ユーザー',
+        },
+        {
+          name: 'スマートアナリティクスプラットフォーム',
+          description: 'AIデータ分析、予測モデリング、自然言語クエリを備えたエンタープライズモバイルアプリ',
+          tech: 'React Native, TensorFlow.js, LangChain, PostgreSQL',
+          impact: '意思決定55%高速化、800+企業',
+        },
+      ],
+    },
+    // Languages
+    languages: {
+      title: '言語',
+      items: [
+        { name: 'ベトナム語', level: 'ネイティブ' },
+        { name: '英語', level: 'ビジネスレベル' },
+        { name: '日本語', level: '初級' },
+      ],
+    },
+    // Stats
+    stats: {
+      apps: '60+',
+      appsLabel: 'アプリ展開数',
+      users: '3M+',
+      usersLabel: 'ユーザー数',
+      countries: '20+',
+      countriesLabel: '展開国数',
+      satisfaction: '97%',
+      satisfactionLabel: '顧客満足度',
+    },
   },
   // About section
   about: {
     title: '私について',
-    subtitle: 'フルスタック開発者＆AI愛好家',
-    description: '革新的なソリューションの創造に情熱',
+    subtitle: 'シニアReact Native & AI/LLMソリューションアーキテクト',
+    description: '革新的でスケーラブルなソリューションの創造に情熱',
     yearsExperience: '年の経験',
-    projectsCompleted: '完了プロジェクト',
+    projectsCompleted: 'アプリ展開数',
     happyClients: '満足したクライアント',
     name: 'トラン・アン・ドゥック',
-    mainDescription: 'AI搭載モバイル・Webアプリケーションを専門とする4年以上の経験を持つReact Nativeおよびフルスタック開発者。React Native、Next.js 15、最先端AI統合によるクロスプラットフォームソリューション構築のエキスパート。現代的UXと堅牢なAI機能を備えたインテリジェントで高性能なアプリケーションの作成に情熱を注いでいます。',
+    mainDescription: 'AI/LLM統合モバイル・Webアプリケーションを専門とする5年以上の経験を持つシニアReact Nativeおよびフルスタック開発者。React Native 0.76+、Next.js 15、最先端AI統合（GPT-4o、Claude 4、LangChain、RAGシステム）によるクロスプラットフォームソリューション構築のエキスパート。60+アプリを展開し、20+カ国で3M+ユーザーにサービス提供。',
     expertiseLabels: {
       aiIntegrationExpert: 'AI統合エキスパート',
       reactNativeSpecialist: 'React Nativeスペシャリスト'
@@ -102,18 +267,18 @@ export const ja = {
     },
     workInfo: {
       location: '場所',
-      locationValue: 'ベトナム (UTC+7)',
+      locationValue: 'ベトナム (UTC+7) • リモートワールドワイド',
       experience: '経験',
-      experienceValue: '4年以上',
+      experienceValue: '5年以上 • 60+アプリ',
       availability: '対応可能性',
-      availabilityValue: '仕事受付中',
+      availabilityValue: '新規プロジェクト受付中',
       workStyle: 'ワークスタイル',
-      workStyleValue: 'リモート • グローバル'
+      workStyleValue: 'リモート • アジャイル • グローバル'
     },
     techStack: [
-      'React Native', 'Next.js 15', 'TypeScript', 'OpenAI GPT-4', 'TensorFlow.js',
-      'Expo', 'Zustand', 'React Query', 'Supabase', 'Prisma', 'PostgreSQL',
-      'WebRTC', 'Socket.io', 'AWS', 'Vercel', 'Docker', 'Stripe', 'Firebase'
+      'React Native 0.76+ + Expo 52', 'Next.js 15 + React 19', 'TypeScript 5.5', 'OpenAI GPT-4o/GPT-5', 'Claude 4 + Gemini Pro',
+      'LangChain + RAGシステム', 'TanStack Query + Zustand 5', 'Supabase + PostgreSQL 16', 'Prisma 5 + Vector DBs',
+      'AWS + Vercel', 'Docker + Kubernetes', 'Stripe + RevenueCat', 'WebRTC + LiveKit'
     ],
     socialLinks: {
       github: {
@@ -452,7 +617,7 @@ export const ja = {
     description: 'ATS最適化された履歴書を複数の形式でダウンロード。最新プロジェクトとAI統合の専門知識で更新済み。',
     badges: {
       atsOptimized: 'ATS最適化',
-      updated2025: '2025年更新',
+      updated2026: '2026年更新',
       aiFocus: 'AI統合重視'
     },
     actions: {

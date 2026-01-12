@@ -7,6 +7,9 @@ import { ModernHeroSection } from "@/components/sections/modern-hero-section";
 import { AdvancedSkillsVisualization } from "@/components/sections/advanced-skills-visualization";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { EnhancedProjectShowcase } from "@/components/sections/enhanced-project-showcase-fixed";
+import { ExperienceTimeline } from "@/components/sections/experience-timeline";
+import { TechStackMarquee } from "@/components/sections/tech-stack-marquee";
+import { QuickFacts } from "@/components/sections/quick-facts";
 import { PROJECTS } from "@/lib/constants/projects";
 
 export default function Home() {
@@ -14,6 +17,9 @@ export default function Home() {
     <div className="space-y-0 pt-20">
       {/* Modern Hero Section */}
       <ModernHeroSection />
+
+      {/* Tech Stack Marquee - New! */}
+      <TechStackMarquee />
       
       {/* Original Universe Section - Keep as artistic showcase */}
       <FullScreen className="w-full xl:w-[85%] mx-auto">
@@ -24,9 +30,19 @@ export default function Home() {
         <MyInformation />
       </FullScreen>
 
+      {/* Quick Facts - New! */}
+      <FullScreen className="w-full xl:w-[85%] mx-auto">
+        <QuickFacts />
+      </FullScreen>
+
       {/* Advanced Skills Visualization */}
       <FullScreen className="w-full xl:w-[85%] mx-auto">
         <AdvancedSkillsVisualization />
+      </FullScreen>
+
+      {/* Experience Timeline - New! */}
+      <FullScreen className="w-full xl:w-[85%] mx-auto">
+        <ExperienceTimeline />
       </FullScreen>
 
       {/* Enhanced Project Showcase */}

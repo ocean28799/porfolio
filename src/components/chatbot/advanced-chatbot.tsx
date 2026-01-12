@@ -16,7 +16,6 @@ import {
   Github,
   Linkedin,
   Mail,
-  Target,
   Zap,
   Brain,
   CheckCircle,
@@ -72,6 +71,14 @@ const quickActions: QuickAction[] = [
     category: 'info'
   },
   {
+    id: 'projects',
+    label: 'Projects',
+    icon: <Lightbulb className="w-3 h-3" />,
+    prompt: 'Show me his projects and portfolio',
+    color: 'bg-purple-500/10 text-purple-500 hover:bg-purple-500/20 border-purple-500/20',
+    category: 'project'
+  },
+  {
     id: 'pricing',
     label: 'Pricing',
     icon: <DollarSign className="w-3 h-3" />,
@@ -92,76 +99,77 @@ const quickActions: QuickAction[] = [
 const portfolioData = {
   about: {
     name: 'Tran Anh Duc',
-    title: 'Senior React Native & AI Integration Specialist',
-    experience: '4+ years',
-    specialties: ['React Native', 'AI Integration', 'Next.js 15', 'OpenAI', 'Enterprise Apps'],
-    achievements: '50+ enterprise-grade applications across 15+ countries',
-    userImpact: 'Millions of users worldwide',
-    description: 'Senior React Native and AI Integration Specialist with proven expertise in deploying enterprise-grade applications serving millions of users worldwide. Passionate about creating innovative solutions that bridge mobile technology and artificial intelligence.'
+    title: 'Senior Mobile & AI Solutions Architect',
+    experience: '5+ years of proven impact',
+    specialties: ['React Native', 'Next.js 15', 'AI/ML Integration', 'GPT-4', 'TensorFlow.js', 'LangChain', 'RAG Systems'],
+    achievements: '60+ enterprise apps shipped across 20+ countries',
+    userImpact: '3M+ users served worldwide',
+    description: 'Senior Mobile & AI Solutions Architect with 5+ years delivering enterprise-scale applications. Led development of 60+ production apps serving 3M+ users globally. Track record of reducing development time by 40%, improving app performance by 60%, and driving $2M+ in client revenue through innovative solutions.'
   },
   projects: [
     {
       name: 'AI Virtual Assistant - React Native + Next.js',
-      description: 'Complete AI assistant ecosystem with mobile app, web dashboard, and voice capabilities. Features real-time conversations, document analysis, image recognition, and multi-modal AI interactions across platforms.',
-      tech: ['React Native', 'Next.js 15', 'OpenAI GPT-4o', 'Whisper API', 'Expo', 'TypeScript', 'Supabase', 'Vector DB', 'WebRTC'],
-      impact: '95% accuracy, 50ms response time, 10K+ users',
-      features: ['Voice-to-text with Whisper', 'Real-time AI conversations', 'Cross-platform sync', 'Document analysis'],
-      status: 'Live Demo Available'
+      description: 'Complete AI assistant ecosystem with mobile app, web dashboard, and voice capabilities. Real-time conversations, document analysis with RAG, and multi-modal AI interactions.',
+      tech: ['React Native', 'Next.js 15', 'OpenAI GPT-4', 'Whisper API', 'TypeScript', 'Supabase', 'Pinecone', 'WebRTC'],
+      impact: '95% accuracy, 50ms response, 10K+ users',
+      features: ['Voice-to-text', 'Real-time AI conversations', 'Cross-platform sync', 'Document analysis'],
+      status: 'Production'
     },
     {
-      name: 'Smart Analytics & Business Intelligence App',
-      description: 'Enterprise mobile app with AI-powered data analytics, predictive modeling, and automated insights. Features real-time dashboards, natural language queries, and intelligent business recommendations.',
-      tech: ['React Native', 'TypeScript', 'TensorFlow.js', 'D3.js', 'OpenAI API', 'Prisma', 'PostgreSQL', 'Redis', 'Chart.js'],
-      impact: '40% faster decision making, 500+ enterprises',
-      features: ['AI-powered insights', 'Real-time dashboards', 'Predictive analytics', 'Natural language queries'],
-      status: 'Live Demo Available'
+      name: 'Smart Analytics & Business Intelligence',
+      description: 'Enterprise mobile analytics with AI-powered insights, predictive modeling, and natural language queries.',
+      tech: ['React Native', 'TensorFlow.js', 'D3.js', 'OpenAI API', 'PostgreSQL', 'Redis'],
+      impact: '40% faster decisions, 500+ enterprises',
+      features: ['AI insights', 'Real-time dashboards', 'Predictive analytics', 'NL queries'],
+      status: 'Production'
     },
     {
-      name: 'AI Content Creation & Marketing Platform',
-      description: 'SaaS platform for AI-powered content generation, social media automation, and marketing campaigns. Features multi-modal content creation, brand voice training, and performance analytics.',
-      tech: ['Next.js 15', 'TypeScript', 'OpenAI GPT-4', 'DALL-E 3', 'Vercel AI SDK', 'Prisma', 'Stripe', 'TailwindCSS', 'Framer Motion'],
-      impact: '3x faster content creation, 1000+ brands served',
-      features: ['Multi-modal content generation', 'Social media automation', 'Performance analytics', 'Brand voice training'],
-      status: 'Live Demo Available'
+      name: 'AI Content Creation Platform',
+      description: 'SaaS for AI content generation, social media automation, and marketing campaigns. $2M ARR achieved.',
+      tech: ['Next.js 15', 'GPT-4', 'DALL-E 3', 'Vercel AI SDK', 'Stripe'],
+      impact: '3x content speed, 1000+ brands, $150K+ MRR',
+      features: ['Multi-modal generation', 'Brand voice training', 'Social automation'],
+      status: 'Production'
     },
     {
-      name: 'Smart Home Ecosystem with AI Automation',
-      description: 'Intelligent home automation platform with AI-driven energy optimization, predictive maintenance, and natural language control. Supports 100+ device types with machine learning-based automation rules.',
-      tech: ['React Native', 'Next.js', 'TypeScript', 'OpenAI API', 'MQTT', 'WebSocket', 'TensorFlow.js', 'AWS IoT', 'React Native Reanimated'],
-      impact: '30% energy savings, 95% user satisfaction',
-      features: ['AI-driven energy optimization', 'Predictive maintenance', 'Natural language control', 'Supports 100+ device types'],
-      status: 'Live Demo Available'
+      name: 'Smart Home AI Ecosystem',
+      description: 'Home automation with AI energy optimization, predictive maintenance, and natural language control.',
+      tech: ['React Native', 'Next.js', 'AWS IoT', 'TensorFlow.js', 'MQTT'],
+      impact: '30% energy savings, 95% satisfaction',
+      features: ['Energy optimization', 'Predictive maintenance', '100+ device types'],
+      status: 'Production'
     },
     {
-      name: 'AI-Powered Trading & Portfolio Management',
-      description: 'Advanced fintech app with AI trading signals, portfolio optimization, and risk analysis. Features real-time market data, intelligent alerts, and personalized investment recommendations.',
-      tech: ['React Native', 'TypeScript', 'TensorFlow.js', 'WebSocket', 'OpenAI API', 'Zustand', 'Biometric Auth', 'Chart.js', 'Firebase'],
-      impact: '20% higher returns, 10x faster analysis',
-      features: ['AI trading signals', 'Portfolio optimization', 'Risk analysis', 'Real-time market data'],
-      status: 'Live Demo Available'
+      name: 'AI Trading & Portfolio Management',
+      description: 'Fintech app with AI trading signals, portfolio optimization, and risk analysis. $500M+ AUM managed.',
+      tech: ['React Native', 'TensorFlow.js', 'WebSocket', 'Firebase'],
+      impact: '20% higher returns, 50K+ traders',
+      features: ['AI signals', 'Real-time data', 'Risk analysis'],
+      status: 'Production'
     },
     {
-      name: 'AI Health Monitoring & Telemedicine App',
-      description: 'Comprehensive health app with AI symptom analysis, telemedicine consultations, and personalized wellness plans. Features medical image analysis, vital sign monitoring, and secure patient data management.',
-      tech: ['React Native', 'TypeScript', 'TensorFlow.js', 'OpenAI API', 'HealthKit', 'WebRTC', 'Supabase', 'HIPAA Compliance'],
-      impact: '70% reduction in hospital visits, 90% user satisfaction',
-      features: ['AI symptom analysis', 'Telemedicine consultations', 'Personalized wellness plans', 'Medical image analysis'],
-      status: 'Live Demo Available'
+      name: 'AI Health Monitoring & Telemedicine',
+      description: 'HIPAA-compliant health app with AI symptom analysis and telemedicine. 100K+ consultations completed.',
+      tech: ['React Native', 'TensorFlow.js', 'WebRTC', 'Supabase'],
+      impact: '70% fewer hospital visits, 90% satisfaction',
+      features: ['Symptom analysis', 'Video consultations', 'Health tracking'],
+      status: 'Production'
     }
   ],
   experience: {
-    current: 'Senior React Native & AI Integration Specialist',
-    years: '4+ years',
-    focus: 'Enterprise mobile applications with AI integration',
-    deployments: '50+ applications across 15+ countries',
-    userBase: 'Millions of users worldwide',
-    specialization: 'Mobile-first AI solutions for enterprise clients',
+    current: 'Senior Mobile & AI Solutions Architect',
+    years: '5+ years',
+    focus: 'Enterprise-scale mobile & AI solutions',
+    deployments: '60+ apps shipped across 20+ countries',
+    userBase: '3M+ users impacted globally',
+    specialization: 'Building scalable AI-powered applications that deliver measurable business results',
     achievements: [
-      'Led development of 50+ enterprise applications',
-      'Deployed solutions across 15+ countries',
-      'Served millions of users globally',
-      'Specialized in AI integration for mobile platforms',
-      'Expert in performance optimization and scalability'
+      'Shipped 60+ production applications to global markets',
+      'Served 3M+ users across 20+ countries',
+      'Reduced development cycles by 40% through architecture optimization',
+      'Improved app performance by 60% through systematic optimization',
+      'Generated $2M+ in client revenue through AI-powered solutions',
+      'Led cross-functional teams of up to 10 developers'
     ]
   },    contact: {
         email: 'ocean28799@gmail.com',
@@ -173,11 +181,11 @@ const portfolioData = {
         availability: 'Open to new opportunities'
     },
   skills: {
-    mobile: ['React Native', 'iOS Development', 'Android Development', 'Cross-platform Solutions'],
-    web: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Modern Web APIs'],
-    ai: ['OpenAI Integration', 'AI/ML Implementation', 'Intelligent Features', 'Natural Language Processing'],
-    backend: ['Node.js', 'API Development', 'Database Management', 'Cloud Integration'],
-    other: ['Enterprise Architecture', 'Performance Optimization', 'CI/CD', 'Team Leadership']
+    mobile: ['React Native', 'iOS', 'Android', 'Expo SDK', 'Cross-Platform Architecture'],
+    web: ['Next.js 15', 'React 19', 'TypeScript', 'TailwindCSS', 'Modern Web APIs'],
+    ai: ['OpenAI GPT-4', 'Claude', 'TensorFlow.js', 'LangChain', 'RAG Systems', 'Vector DBs'],
+    backend: ['Node.js', 'PostgreSQL', 'Prisma', 'Supabase', 'AWS', 'Redis'],
+    other: ['Technical Architecture', 'Team Leadership', 'Agile/Scrum', 'Code Review', 'Mentoring']
   },
   resume: {
     formats: ['PDF', 'HTML', 'ATS-optimized', 'React Native focused'],
@@ -289,7 +297,7 @@ Feel free to start by clicking any of the quick actions below, or ask me anythin
             id: 'view-html',
             label: 'View HTML',
             icon: <ExternalLink className="w-4 h-4" />,
-            action: () => window.open('/files/TranAnhDuc-Modern-CV-2025.html', '_blank'),
+            action: () => window.open('/files/TranAnhDuc-Modern-CV-2026.html', '_blank'),
             variant: 'outline'
           }
         ]
@@ -395,8 +403,8 @@ Duc is ${portfolioData.contact.availability} and would love to discuss new oppor
 
 **Contact Information:**
 • 📧 **Email:** ${portfolioData.contact.email}
-• � **Phone:** ${portfolioData.contact.phone}
-• � **Location:** ${portfolioData.contact.location}
+• 📱 **Phone:** ${portfolioData.contact.phone}
+• 📍 **Location:** ${portfolioData.contact.location}
 • 💼 **LinkedIn:** ${portfolioData.contact.linkedin}
 • 🐙 **GitHub:** ${portfolioData.contact.github}
 
@@ -430,7 +438,7 @@ Choose the format that best fits your needs! The ATS-optimized version is perfec
 
 **Main Development Services:**
 
-� **Expert Development**
+💼 **Expert Development**
 • **$15 per hour** - Premium development services
 • Senior React Native & Next.js development
 • Advanced AI integration (OpenAI, Custom ML)
@@ -453,7 +461,7 @@ Choose the format that best fits your needs! The ATS-optimized version is perfec
 
 **Additional Services:**
 • 🤖 **AI Integration & Automation** - $800 - $2,200
-• � **App Migration & Modernization** - $1,500 - $3,500
+• 📱 **App Migration & Modernization** - $1,500 - $3,500
 • 🛠️ **Premium Support & Maintenance** - $350/month
 • ⚡ **Performance & Scale Optimization** - $600 - $1,800
 
@@ -658,61 +666,67 @@ What would you like to know more about?`,
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed left-2 right-2 top-2 bottom-2 z-50 w-auto max-w-none max-h-none xs:left-2 xs:right-2 xs:top-2 xs:bottom-2 sm:w-[calc(100vw-1rem)] sm:left-2 sm:right-2 sm:bottom-2 sm:top-auto sm:translate-y-0 sm:max-h-[calc(100vh-8rem)] md:w-[480px] md:left-8 md:right-auto md:top-[40%] md:bottom-auto md:-translate-y-1/2 lg:w-[520px] lg:left-20"
-            style={{ bottom: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="chatbot-window-container"
           >
             <Card className={cn(
               "overflow-hidden backdrop-blur-xl chatbot-card",
-              "shadow-2xl",
-              "h-[calc(100vh)] xs:h-[calc(100vh)] sm:h-[calc(100vh-8rem)] sm:max-h-[calc(100vh-8rem)] md:h-[650px] lg:h-[700px] xl:h-[750px] flex flex-col"
+              "shadow-2xl chatbot-window",
+              "flex flex-col"
             )}>
               <>
+                {/* Header */}
+                <div className="chatbot-header flex-shrink-0">
+                  <div className="flex items-center gap-3">
+                    <div className="chatbot-header-avatar">
+                      <Brain className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="chatbot-header-title">Duc&apos;s AI Assistant</h3>
+                      <div className="chatbot-header-status">
+                        <span className="chatbot-status-dot" />
+                        <span>Online • Ready to help</span>
+                      </div>
+                    </div>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setIsOpen(false)}
+                    className="chatbot-close-btn"
+                    title="Close chat"
+                  >
+                    <X className="w-5 h-5" />
+                  </Button>
+                </div>
+
                 {/* Messages */}
-                  <div className="flex-1 overflow-y-auto p-2 xs:p-2 sm:p-2 space-y-3 xs:space-y-3 sm:space-y-3 chatbot-scrollbar min-h-0 relative" style={{ WebkitOverflowScrolling: 'touch' }}>
-                    {/* Close button in top-right corner */}
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="sticky top-0 right-0 z-20 flex justify-end"
-                    >
-                      <motion.div
-                      >
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => setIsOpen(false)}
-                          className="w-8 h-8 hover:bg-red-500/20 text-foreground hover:text-red-400 transition-all duration-200 rounded-full backdrop-blur-sm border border-white/20 hover:border-red-400/30 chatbot-close-button"
-                          title="Close chat"
-                        >
-                          <X className="w-4 h-4 font-bold" />
-                        </Button>
-                      </motion.div>
-                    </motion.div>
+                <div className="chatbot-messages-container chatbot-scrollbar" style={{ WebkitOverflowScrolling: 'touch' }}>
                     {messages.map((message) => (
                       <motion.div
                         key={message.id}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         className={cn(
-                          "flex gap-3",
-                          message.isUser ? "justify-end" : "justify-start"
+                          "chatbot-message-row",
+                          message.isUser ? "chatbot-message-user" : "chatbot-message-bot-row"
                         )}
                       >
                         {!message.isUser && (
-                          <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                          <div className="chatbot-avatar chatbot-avatar-bot">
                             <Brain className="w-4 h-4 text-white" />
                           </div>
                         )}
-                        <div className="flex flex-col max-w-[90%]">
+                        <div className="chatbot-message-content">
                           <div
                             className={cn(
-                              "rounded-lg p-3 text-sm shadow-sm",
+                              "chatbot-bubble",
                               message.isUser
-                                ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                                : "chatbot-message-bot text-foreground"
+                                ? "chatbot-bubble-user"
+                                : "chatbot-bubble-bot"
                             )}
                           >
                             {message.type === 'rich' || !message.isUser ? (
@@ -728,7 +742,7 @@ What would you like to know more about?`,
                               initial={{ opacity: 0, y: 10 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.3 }}
-                              className="flex flex-wrap gap-2 mt-3"
+                              className="chatbot-actions"
                             >
                               {message.actions.map((action, index) => (
                                 <motion.div
@@ -736,20 +750,17 @@ What would you like to know more about?`,
                                   initial={{ opacity: 0, scale: 0.8 }}
                                   animate={{ opacity: 1, scale: 1 }}
                                   transition={{ delay: 0.1 * index }}
-                                  whileHover={{ scale: 1.05 }}
-                                  whileTap={{ scale: 0.95 }}
+                                  whileHover={{ scale: 1.03 }}
+                                  whileTap={{ scale: 0.97 }}
                                 >
                                   <Button
                                     variant={action.variant || 'outline'}
                                     size="sm"
                                     onClick={action.action}
-                                    className={cn(
-                                      "h-8 text-xs shadow-sm hover:shadow-md transition-all duration-200 gap-1",
-                                      action.variant === 'outline' && "border-2 hover:bg-muted/80"
-                                    )}
+                                    className="chatbot-action-btn"
                                   >
                                     {action.icon}
-                                    {action.label}
+                                    <span className="hidden xs:inline">{action.label}</span>
                                   </Button>
                                 </motion.div>
                               ))}
@@ -757,8 +768,8 @@ What would you like to know more about?`,
                           )}
                           
                           <div className={cn(
-                            "text-xs mt-1 opacity-80",
-                            message.isUser ? "text-right text-white/80" : "text-left text-muted-foreground"
+                            "chatbot-timestamp",
+                            message.isUser ? "text-right" : "text-left"
                           )}>
                             {message.timestamp.toLocaleTimeString([], { 
                               hour: '2-digit', 
@@ -768,144 +779,126 @@ What would you like to know more about?`,
                         </div>
                         
                         {message.isUser && (
-                          <div className="w-8 h-8 rounded-full bg-gradient-to-r from-green-500 to-teal-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                          <div className="chatbot-avatar chatbot-avatar-user">
                             <User className="w-4 h-4 text-white" />
                           </div>
                         )}
                       </motion.div>
                     ))}
-                       {isTyping && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="flex gap-3 animate-fade-in-up"
-                    >
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-lg">
-                        <Brain className="w-4 h-4 text-white" />
-                      </div>
-                      <div className="chatbot-message-bot rounded-lg p-3 flex items-center gap-2">
-                        <span className="text-xs text-muted-foreground">
-                          {typingMessage || 'Typing'}
-                        </span>
-                        <div className="flex space-x-1">
-                          <motion.div 
-                            className="w-2 h-2 bg-blue-500 rounded-full" 
-                            animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 0.6, repeat: Infinity, delay: 0 }}
-                          />
-                          <motion.div 
-                            className="w-2 h-2 bg-purple-500 rounded-full" 
-                            animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
-                          />
-                          <motion.div 
-                            className="w-2 h-2 bg-pink-500 rounded-full" 
-                            animate={{ scale: [1, 1.2, 1] }}
-                            transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
-                          />
+                    {isTyping && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="chatbot-typing-indicator"
+                      >
+                        <div className="chatbot-avatar chatbot-avatar-bot">
+                          <Brain className="w-4 h-4 text-white" />
                         </div>
-                      </div>
-                    </motion.div>
-                  )}
+                        <div className="chatbot-typing-bubble">
+                          <span className="chatbot-typing-text">
+                            {typingMessage || 'Typing'}
+                          </span>
+                          <div className="chatbot-typing-dots">
+                            <motion.span 
+                              className="chatbot-dot chatbot-dot-1" 
+                              animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                              transition={{ duration: 0.8, repeat: Infinity, delay: 0 }}
+                            />
+                            <motion.span 
+                              className="chatbot-dot chatbot-dot-2" 
+                              animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                              transition={{ duration: 0.8, repeat: Infinity, delay: 0.2 }}
+                            />
+                            <motion.span 
+                              className="chatbot-dot chatbot-dot-3" 
+                              animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                              transition={{ duration: 0.8, repeat: Infinity, delay: 0.4 }}
+                            />
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
                     <div ref={messagesEndRef} />
                   </div>
 
-                  {/* Quick Actions */}
-                  <div className="p-3 border-t border-white/20 bg-gradient-to-r from-card/50 to-card/30 backdrop-blur-sm flex-shrink-0">
-                    <div className="mb-3">
+                  {/* Quick Actions & Input Area */}
+                  <div className="chatbot-footer">
+                    {/* Quick Actions */}
+                    <div className="chatbot-quick-section">
                       <div className="chatbot-section-header">
                         <Zap className="w-3 h-3 chatbot-section-icon" />
-                        <h4 className="chatbot-section-title">
-                          Quick Actions
-                        </h4>
-                        <div className="flex-1 chatbot-section-divider"></div>
+                        <span className="chatbot-section-title">Quick Actions</span>
                       </div>
-                      <div className="chatbot-quick-actions-container p-2">
-                        <div className="grid grid-cols-4 xs:grid-cols-4 sm:grid-cols-4 md:grid-cols-4 gap-1.5 relative z-10">
-                          {filteredQuickActions.map((action, index) => (
-                            <motion.div
-                              key={action.id}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              transition={{ delay: index * 0.1, duration: 0.2 }}
-                              whileHover={{ scale: 1.02 }}
-                              whileTap={{ scale: 0.98 }}
-                            >
-                              <div
-                                className={cn(
-                                  "chatbot-quick-action-badge cursor-pointer w-full justify-center py-1.5 px-0.5 xs:px-0.5 sm:px-1 md:px-2 flex items-center gap-0.5 xs:gap-0.5 sm:gap-1 min-h-[2.5rem]",
-                                  `chatbot-quick-action-${action.id}`,
-                                  activeCategory === action.category && "ring-2 ring-blue-500 ring-offset-1",
-                                  lastActionId === action.id && "scale-95 opacity-75",
-                                  messages.length === 1 && "chatbot-quick-action-pulse"
-                                )}
-                                onClick={() => handleQuickAction(action)}
-                              >
-                                <div className="text-xs chatbot-quick-action-icon flex-shrink-0">{action.icon}</div>
-                                <span className="font-medium text-xs xs:text-xs sm:text-xs truncate">{action.label}</span>
-                              </div>
-                            </motion.div>
-                          ))}
-                        </div>
+                      <div className="chatbot-quick-grid">
+                        {filteredQuickActions.map((action, index) => (
+                          <motion.button
+                            key={action.id}
+                            initial={{ opacity: 0, y: 5 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className={cn(
+                              "chatbot-quick-btn",
+                              `chatbot-quick-${action.id}`,
+                              activeCategory === action.category && "chatbot-quick-active",
+                              lastActionId === action.id && "chatbot-quick-loading",
+                              messages.length === 1 && "chatbot-quick-pulse"
+                            )}
+                            onClick={() => handleQuickAction(action)}
+                          >
+                            <span className="chatbot-quick-icon">{action.icon}</span>
+                            <span className="chatbot-quick-label">{action.label}</span>
+                          </motion.button>
+                        ))}
                       </div>
                     </div>
 
                     {/* Input */}
-                    <div className="chatbot-input-container p-2 xs:p-2 sm:p-2">
-                      <div className="relative z-10">
-                        <div className="chatbot-input-group gap-1.5 xs:gap-1.5 sm:gap-1.5">
-                          <div className="chatbot-input-wrapper">
-                            <Input
-                              value={inputValue}
-                              onChange={(e) => setInputValue(e.target.value)}
-                              onKeyPress={handleKeyPress}
-                              placeholder={getPlaceholder()}
-                              className={cn(
-                                "chatbot-input-field chatbot-tooltip text-base sm:text-sm h-11 sm:h-10",
-                                isTyping && "chatbot-input-loading"
-                              )}
-                              style={{ fontSize: '16px' }} // Prevents zoom on iOS
-                              data-tooltip={isTyping ? "AI is responding..." : "Type your message here"}
-                              disabled={isTyping}
-                            />
-                          </div>
-                          <div className="chatbot-button-container">
-                            <Button
-                              onClick={handleSend}
-                              disabled={!inputValue.trim() || isTyping}
-                              className={cn(
-                                "chatbot-send-button px-3 py-2 chatbot-tooltip min-w-[44px] h-11 sm:h-10 touch-action-manipulation",
-                                isTyping && "loading"
-                              )}
-                              data-tooltip="Send message"
-                              title="Send message"
-                            >
-                              <motion.div
-                                animate={isTyping ? { rotate: 360 } : { rotate: 0 }}
-                                transition={{ duration: 1, repeat: isTyping ? Infinity : 0, ease: "linear" }}
-                              >
-                                <Send className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
-                              </motion.div>
-                            </Button>
-                          </div>
-                        </div>
-                        
-                        <div className="chatbot-footer-text text-xs text-center">
-                          <Target className="w-3 h-3 inline mr-1 text-blue-400 chatbot-footer-icon" />
-                          <span className="text-muted-foreground">AI-powered assistant • Press </span>
-                          <kbd className="chatbot-footer-kbd">Enter</kbd>
-                          <span className="text-muted-foreground"> to send • Ask anything!</span>
-                          {inputValue.trim() && (
-                            <motion.div
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={{ opacity: 1, scale: 1 }}
-                              className="mt-1 text-xs text-green-400 flex items-center justify-center gap-1"
-                            >
-                              <CheckCircle className="w-3 h-3" />
-                              <span>Ready to send</span>
-                            </motion.div>
+                    <div className="chatbot-input-section">
+                      <div className="chatbot-input-row">
+                        <Input
+                          value={inputValue}
+                          onChange={(e) => setInputValue(e.target.value)}
+                          onKeyPress={handleKeyPress}
+                          placeholder={getPlaceholder()}
+                          className={cn(
+                            "chatbot-input",
+                            isTyping && "chatbot-input-disabled"
                           )}
-                        </div>
+                          style={{ fontSize: '16px' }}
+                          disabled={isTyping}
+                        />
+                        <Button
+                          onClick={handleSend}
+                          disabled={!inputValue.trim() || isTyping}
+                          className={cn(
+                            "chatbot-send-btn",
+                            inputValue.trim() && !isTyping && "chatbot-send-ready"
+                          )}
+                          title="Send message"
+                        >
+                          <motion.div
+                            animate={isTyping ? { rotate: 360 } : { rotate: 0 }}
+                            transition={{ duration: 1, repeat: isTyping ? Infinity : 0, ease: "linear" }}
+                          >
+                            <Send className="w-4 h-4" />
+                          </motion.div>
+                        </Button>
+                      </div>
+                      
+                      <div className="chatbot-input-hint">
+                        <span className="hidden sm:inline">Press <kbd>Enter</kbd> to send</span>
+                        <span className="sm:hidden">Tap send or press Enter</span>
+                        {inputValue.trim() && (
+                          <motion.span
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="chatbot-ready-badge"
+                          >
+                            <CheckCircle className="w-3 h-3" />
+                            Ready
+                          </motion.span>
+                        )}
                       </div>
                     </div>
                   </div>

@@ -11,6 +11,7 @@ import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
 import rehypeRaw from 'rehype-raw'
 import { type BlogArticle } from "@/lib/constants/blog-articles"
+import { ReadingProgress, CircularReadingProgress } from "./reading-progress"
 
 // Import highlight.js styles
 import 'highlight.js/styles/github-dark.css'
@@ -39,6 +40,10 @@ export function BlogArticle({ article }: BlogArticleProps) {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950">
+      {/* Reading Progress Bar */}
+      <ReadingProgress />
+      <CircularReadingProgress />
+      
       <div className="container mx-auto px-6 py-16 max-w-4xl">
         {/* Navigation */}
         <motion.div

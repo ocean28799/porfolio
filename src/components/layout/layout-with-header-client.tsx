@@ -1,9 +1,13 @@
 "use client"
 
 import React from "react"
+import { usePathname } from "next/navigation"
 import { AIGamingBackground } from "../features/backgrounds/ai-gaming-background"
 import { NeutralAIBackground } from "../features/backgrounds/neutral-ai-background"
 import { useBackground } from "@/contexts/background-context"
+
+// Routes that should have clean layout without backgrounds/footer
+const CLEAN_ROUTES = ['/cv']
 
 export const LayoutWithHeader = ({
   children,
@@ -11,6 +15,21 @@ export const LayoutWithHeader = ({
   children: React.ReactNode
 }) => {
   const { backgroundType } = useBackground()
+  const pathname = usePathname()
+  
+  // Check if current route should have clean layout
+  const isCleanRoute = CLEAN_ROUTES.some(route => pathname?.startsWith(route))
+  
+  // For clean routes, render children directly without backgrounds
+  if (isCleanRoute) {
+    return (
+      <div className="font-[family-name:var(--font-exo2)] font-medium w-screen">
+        <main className="overflow-auto overflow-x-hidden">
+          {children}
+        </main>
+      </div>
+    )
+  }
   
   // Use the selected background type (matrix or basic)
   const BackgroundComponent = backgroundType === 'matrix' ? AIGamingBackground : NeutralAIBackground

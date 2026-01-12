@@ -10,19 +10,17 @@ import {
   Briefcase, 
   Menu, 
   X,
-  Terminal,
   BookOpen,
-  DollarSign
+  FileText,
 } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
 const navItems = [
-  { href: "/", label: "Home", labelKey: "nav.home", icon: Home },
-  { href: "/projects", label: "Projects", labelKey: "nav.projects", icon: Briefcase },
-  { href: "/playground", label: "Playground", labelKey: "nav.playground", icon: Terminal },
-  { href: "/blog", label: "Blog", labelKey: "nav.blog", icon: BookOpen },
-  { href: "/about", label: "About", labelKey: "nav.about", icon: User },
-  { href: "/pricing", label: "Pricing", labelKey: "nav.pricing", icon: DollarSign },
+  { href: "/", label: "Home", labelKey: "nav.home", icon: Home, external: false },
+  { href: "/projects", label: "Projects", labelKey: "nav.projects", icon: Briefcase, external: false },
+  { href: "/blog", label: "Blog", labelKey: "nav.blog", icon: BookOpen, external: false },
+  { href: "/about", label: "About", labelKey: "nav.about", icon: User, external: false },
+  { href: "/cv", label: "CV", labelKey: "nav.cv", icon: FileText, external: true },
 ]
 
 export function FloatingNavigation() {
@@ -68,6 +66,8 @@ export function FloatingNavigation() {
               <Link
                 key={item.href}
                 href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
                 className="relative group"
               >
                 <motion.div
@@ -308,6 +308,8 @@ export function FloatingNavigation() {
                         >
                           <Link
                             href={item.href}
+                            target={item.external ? "_blank" : undefined}
+                            rel={item.external ? "noopener noreferrer" : undefined}
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="group relative block"
                           >
