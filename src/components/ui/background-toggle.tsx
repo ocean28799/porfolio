@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, AnimatePresence } from "motion/react"
+import { motion, AnimatePresence } from "framer-motion"
 import { Zap, Monitor } from "lucide-react"
 import { useBackground } from "@/contexts/background-context"
 import { useAnimation } from "@/hooks/use-animation"

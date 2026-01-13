@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 import type { Container, SingleOrMultiple } from "@tsparticles/engine"
 import Particles, { initParticlesEngine } from "@tsparticles/react"
 import { loadSlim } from "@tsparticles/slim"
-import { motion, useAnimation } from "motion/react"
+import { motion } from "framer-motion"
 import { useEffect, useId, useState } from "react"
 
 type ParticlesProps = {
@@ -31,7 +31,6 @@ export const SparklesCore = (props: ParticlesProps) => {
   } = props
   const [init, setInit] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const controls = useAnimation()
 
   useEffect(() => {
     setMounted(true)
@@ -42,22 +41,8 @@ export const SparklesCore = (props: ParticlesProps) => {
     })
   }, [])
 
-  const particlesLoaded = async (container?: Container) => {
-    if (container && mounted && init) {
-      // Use a small delay to ensure the component is fully mounted
-      setTimeout(() => {
-        try {
-          controls.start({
-            opacity: 1,
-            transition: {
-              duration: 1,
-            },
-          })
-        } catch (error) {
-          console.warn('Animation controls not ready:', error)
-        }
-      }, 100)
-    }
+  const particlesLoaded = async (_container?: Container) => {
+    // Particles loaded successfully
   }
 
   const generatedId = useId()
@@ -68,7 +53,12 @@ export const SparklesCore = (props: ParticlesProps) => {
   }
 
   return (
-    <motion.div animate={controls} className={cn("opacity-0", className)}>
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className={cn(className)}
+    >
       <Particles
         id={id || generatedId}
         className={cn("h-full w-full")}

@@ -12,6 +12,7 @@ import {
   X,
   BookOpen,
   FileText,
+  DollarSign
 } from "lucide-react"
 import { useTranslation } from "react-i18next"
 
@@ -20,6 +21,7 @@ const navItems = [
   { href: "/projects", label: "Projects", labelKey: "nav.projects", icon: Briefcase, external: false },
   { href: "/blog", label: "Blog", labelKey: "nav.blog", icon: BookOpen, external: false },
   { href: "/about", label: "About", labelKey: "nav.about", icon: User, external: false },
+  { href: "/pricing", label: "Pricing", labelKey: "nav.pricing", icon: DollarSign, external: false },
   { href: "/cv", label: "CV", labelKey: "nav.cv", icon: FileText, external: true },
 ]
 

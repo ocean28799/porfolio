@@ -10,7 +10,7 @@ import { useBackground } from "@/contexts/background-context"
 import { useTranslation } from "react-i18next"
 import { ROLE_TITLES } from "@/lib/constants/role-titles"
 import { cn } from "@/lib/utils"
-import { motion } from "motion/react"
+import { motion } from "framer-motion"
 import { memo, useEffect, useState } from "react"
 import { useHydrationSafe } from "@/hooks/use-hydration-safe"
 

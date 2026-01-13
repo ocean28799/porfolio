@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "motion/react"
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion"
 import { useBackground } from "@/contexts/background-context"
 import { useAnimation } from "@/hooks/use-animation"
 import { useTranslation } from "react-i18next"
@@ -22,12 +22,13 @@ import { useEffect, useState, useRef } from "react"
 import { Logo } from "../svg/logo"
 import { LanguageSwitcher } from "../language-switcher"
 
-// Navigation items configuration
+// Navigation items configuration - Updated with Pricing
 const navItems = [
   { title: "Home", href: "/", icon: IconHome, external: false },
   { title: "Projects", href: "/projects", icon: IconCode, external: false },
   { title: "Blog", href: "/blog", icon: IconArticle, external: false },
   { title: "About", href: "/about", icon: IconUser, external: false },
+  { title: "Pricing", href: "/pricing", icon: IconSparkles, external: false },
   { title: "CV", href: "/cv", icon: IconFileDescription, external: true },
 ]
 

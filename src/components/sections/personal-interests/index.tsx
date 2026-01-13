@@ -5,7 +5,7 @@ import { EvervaultCard } from "@/components/ui/evervault-card"
 import { cn } from "@/lib/utils"
 import { IconClipboardCopy } from "@tabler/icons-react"
 import { Blocks } from "lucide-react"
-import { motion } from "motion/react"
+import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { StackCloud } from "./stack-cloud"
 

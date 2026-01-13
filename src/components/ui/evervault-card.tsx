@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
-import { useMotionValue } from "motion/react"
+import { useMotionValue, useMotionTemplate, motion } from "framer-motion"
 import React, { useState, useEffect } from "react"
-import { useMotionTemplate, motion } from "motion/react"
 import { cn } from "@/lib/utils"
 
 export const EvervaultCard = ({
