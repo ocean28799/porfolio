@@ -151,7 +151,7 @@ export function PricingPageContent() {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-white pt-20 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 dark:from-slate-900 via-white dark:via-slate-900 to-slate-100 dark:to-slate-800 text-slate-900 dark:text-white overflow-hidden pt-20">
       
       <FullScreen className="w-full xl:w-[85%] mx-auto py-12 xs:py-8 relative z-10">
         <div className="space-y-16 xs:space-y-10">
