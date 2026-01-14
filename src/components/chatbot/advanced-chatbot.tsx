@@ -290,7 +290,7 @@ Feel free to start by clicking any of the quick actions below, or ask me anythin
             id: 'download-pdf',
             label: 'Download PDF',
             icon: <Download className="w-4 h-4" />,
-            action: () => window.open('/files/TranAnhDuc-ATS-ReactNative-CV.pdf', '_blank'),
+            action: () => window.open('/files/FullStack-Senior-TranAnhDuc', '_blank'),
             variant: 'outline'
           },
           {

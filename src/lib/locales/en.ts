@@ -95,7 +95,7 @@ export const en = {
       tagline: 'Founder @ AI Interview Assistant • React Native Expert • AI/LLM Pioneer',
       location: 'Vietnam (UTC+7) • Remote Worldwide',
       email: 'ocean28799@gmail.com',
-      phone: '+84 XXX XXX XXX',
+      phone: '+84 933 131 760',
       website: 'porfolio-ocean28799s-projects.vercel.app',
       linkedin: 'linkedin.com/in/trananhduc99',
       github: 'github.com/ocean28799',

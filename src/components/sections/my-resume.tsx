@@ -24,7 +24,7 @@ export function MyResume() {
 
   const handleDownloadPDF = () => {
     const link = document.createElement('a')
-    link.href = '/files/TranAnhDuc-ATS-ReactNative-CV.pdf'
+    link.href = '/files/FullStack-Senior-TranAnhDuc'
     link.download = 'TranAnhDuc-ReactNative-CV.pdf'
     document.body.appendChild(link)
     link.click()

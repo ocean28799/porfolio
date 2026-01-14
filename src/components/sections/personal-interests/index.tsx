@@ -48,7 +48,7 @@ const SkeletonOne = () => {
       <EvervaultCard
         text={
           <a
-            href="/files/TranAnhDuc-ATS-ReactNative-CV.pdf"
+            href="/files/FullStack-Senior-TranAnhDuc"
             download
             className="flex flex-col items-center justify-center"
           >

@@ -22,7 +22,7 @@ const navItems = [
   { href: "/blog", label: "Blog", labelKey: "nav.blog", icon: BookOpen, external: false },
   { href: "/about", label: "About", labelKey: "nav.about", icon: User, external: false },
   { href: "/pricing", label: "Pricing", labelKey: "nav.pricing", icon: DollarSign, external: false },
-  { href: "/cv", label: "CV", labelKey: "nav.cv", icon: FileText, external: true },
+  { href: "/files/FullStack-Senior-TranAnhDuc.pdf", label: "CV", labelKey: "nav.cv", icon: FileText, external: true },
 ]
 
 export function FloatingNavigation() {

@@ -95,7 +95,7 @@ export const vi = {
       tagline: 'Nhà Sáng Lập AI Interview Assistant • Chuyên Gia React Native • Tiên Phong AI/LLM',
       location: 'Việt Nam (UTC+7) • Làm Việc Remote Toàn Cầu',
       email: 'ocean28799@gmail.com',
-      phone: '+84 XXX XXX XXX',
+      phone: '+84 933 131 760',
       website: 'porfolio-ocean28799s-projects.vercel.app',
       linkedin: 'linkedin.com/in/trananhduc99',
       github: 'github.com/ocean28799',

@@ -3,23 +3,23 @@ import { PricingPageContent } from "./pricing-content"
 import { PagePerformanceTracker } from "@/components/performance-reporter"
 
 export const metadata: Metadata = {
-  title: "Professional Services & Pricing | Tran Anh Duc - Senior React Native Developer",
+  title: "Pricing & Services | Tran Anh Duc - React Native & AI Developer",
   description:
-    "Enterprise-grade React Native, Next.js, and AI integration services. Premium development starting from $15/hour. Complete AI-powered applications from $2,500.",
+    "Simple, transparent pricing for premium development services. AI-powered mobile apps from $2,500, enterprise web platforms from $1,800, or flexible hourly consulting at $15/hour.",
   keywords: [
-    "Senior React Native Developer Pricing",
+    "React Native Developer Pricing",
+    "AI App Development Cost",
+    "Mobile App Development Rates",
+    "Full Stack Developer Pricing",
+    "Next.js Development Services",
     "AI Integration Services",
-    "Enterprise App Development Cost",
-    "React Native Expert Rates",
-    "Next.js 15 Development Pricing",
-    "AI-Powered App Development",
-    "Premium Developer Services",
-    "Enterprise Web Platform Cost",
+    "Freelance Developer Rates",
+    "Enterprise App Development",
   ],
   openGraph: {
-    title: "Professional Services & Pricing | Tran Anh Duc - Senior React Native Developer",
+    title: "Pricing & Services | Tran Anh Duc - React Native & AI Developer",
     description:
-      "Enterprise-grade development services for AI-powered mobile and web applications. Premium solutions for serious businesses.",
+      "Simple, transparent pricing for premium development. AI-powered apps, enterprise platforms, and flexible consulting — quality that delivers results.",
     url: "https://porfolio-eight-henna.vercel.app/pricing",
     siteName: "Tran Anh Duc",
     type: "website",
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Professional Services & Pricing | Tran Anh Duc - Senior React Native Developer",
+    title: "Pricing & Services | Tran Anh Duc - React Native & AI Developer",
     description:
-      "Competitive pricing for React Native and Full Stack development services. Starting from $15/hour.",
+      "Premium development at competitive rates. AI mobile apps from $2,500, web platforms from $1,800, consulting at $15/hour.",
   },
   alternates: {
     canonical: "https://porfolio-eight-henna.vercel.app/pricing",

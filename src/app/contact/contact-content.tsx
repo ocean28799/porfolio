@@ -136,7 +136,7 @@ export function ContactContent() {
             className="lg:col-span-2 space-y-6"
           >
             {/* Quick Facts Card */}
-            <Card className="p-6 bg-white/90 dark:bg-slate-900/90 border-gray-200/50 dark:border-slate-700/50 shadow-xl dark:shadow-none">
+            <Card className="p-6 bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-blue-950/30 dark:via-slate-900/50 dark:to-cyan-950/30 border-blue-200/50 dark:border-blue-700/30 hover:border-blue-500/50 dark:hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 transition-all shadow-xl backdrop-blur-sm">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                 <MessageCircle className="w-5 h-5 text-blue-500" />
                 Quick Info
@@ -144,7 +144,7 @@ export function ContactContent() {
               <div className="space-y-4">
                 {QUICK_FACTS.map((fact) => (
                   <div key={fact.label} className="flex items-start gap-3">
-                    <div className={`p-2 rounded-lg bg-gray-100 dark:bg-slate-800 ${fact.color}`}>
+                    <div className={`p-2 rounded-lg bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 border border-blue-200/30 dark:border-blue-700/20 ${fact.color}`}>
                       <fact.icon className="w-4 h-4" />
                     </div>
                     <div>
@@ -161,7 +161,7 @@ export function ContactContent() {
             </Card>
 
             {/* Services Card */}
-            <Card className="p-6 bg-white/90 dark:bg-slate-900/90 border-gray-200/50 dark:border-slate-700/50 shadow-xl dark:shadow-none">
+            <Card className="p-6 bg-gradient-to-br from-purple-50 via-white to-pink-50 dark:from-purple-950/30 dark:via-slate-900/50 dark:to-pink-950/30 border-purple-200/50 dark:border-purple-700/30 hover:border-purple-500/50 dark:hover:border-purple-500/40 hover:shadow-lg hover:shadow-purple-500/10 dark:hover:shadow-purple-500/20 transition-all shadow-xl backdrop-blur-sm">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-purple-500" />
                 Services Offered
@@ -170,7 +170,7 @@ export function ContactContent() {
                 {SERVICES.map((service) => (
                   <div 
                     key={service.title}
-                    className="p-3 rounded-lg bg-gray-50 dark:bg-slate-800/50 border border-gray-100 dark:border-slate-700/50"
+                    className="p-3 rounded-lg bg-gradient-to-br from-purple-50/50 to-pink-50/50 dark:from-purple-900/20 dark:to-pink-900/20 border border-purple-200/50 dark:border-purple-700/30 hover:border-purple-400/50 dark:hover:border-purple-500/40 hover:shadow-md transition-all"
                   >
                     <div className="flex items-center justify-between mb-1">
                       <h4 className="font-medium text-gray-900 dark:text-white text-sm">
@@ -195,7 +195,7 @@ export function ContactContent() {
             <AvailabilityCard />
 
             {/* Social Links Card */}
-            <Card className="p-6 bg-white/90 dark:bg-slate-900/90 border-gray-200/50 dark:border-slate-700/50 shadow-xl dark:shadow-none">
+            <Card className="p-6 bg-gradient-to-br from-emerald-50 via-white to-teal-50 dark:from-emerald-950/30 dark:via-slate-900/50 dark:to-teal-950/30 border-emerald-200/50 dark:border-emerald-700/30 hover:border-emerald-500/50 dark:hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/10 dark:hover:shadow-emerald-500/20 transition-all shadow-xl backdrop-blur-sm">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 Connect With Me
               </h3>

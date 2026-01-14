@@ -95,7 +95,7 @@ export const ja = {
       tagline: 'AI Interview Assistant創設者 • React Nativeエキスパート • AI/LLMパイオニア',
       location: 'ベトナム (UTC+7) • グローバルリモートワーク',
       email: 'ocean28799@gmail.com',
-      phone: '+84 XXX XXX XXX',
+      phone: '+84 933 131 760',
       website: 'porfolio-ocean28799s-projects.vercel.app',
       linkedin: 'linkedin.com/in/trananhduc99',
       github: 'github.com/ocean28799',
